@@ -1,11 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://ifh262tmpcqu"]
+[gd_scene load_steps=5 format=3 uid="uid://ifh262tmpcqu"]
 
 [ext_resource type="PackedScene" uid="uid://cut142oiv40j7" path="res://message.tscn" id="1_bkbga"]
+[ext_resource type="Script" uid="uid://ddcg7xhcq8dew" path="res://discussion_room.gd" id="1_teow2"]
+[ext_resource type="Script" uid="uid://bh2343pjo6uqy" path="res://scroll_container.gd" id="3_wye38"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kfc6"]
 bg_color = Color(0.210764, 0.253468, 0.315617, 1)
 
-[node name="DiscussionRoom" type="Control"]
+[node name="DiscussionRoom" type="Control" node_paths=PackedStringArray("response_text_edit", "messages_container", "scroll_container")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +16,11 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+script = ExtResource("1_teow2")
+message_scene = ExtResource("1_bkbga")
+response_text_edit = NodePath("MarginContainer/VBoxContainer/ResponseHBoxContainer/ResponseTextEdit")
+messages_container = NodePath("MarginContainer/VBoxContainer/ChatPanelContainer/ScrollContainer/MessagesVBoxContainer")
+scroll_container = NodePath("MarginContainer/VBoxContainer/ChatPanelContainer/ScrollContainer")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -51,6 +58,7 @@ custom_minimum_size = Vector2(0, 800)
 layout_mode = 2
 follow_focus = true
 horizontal_scroll_mode = 0
+script = ExtResource("3_wye38")
 
 [node name="MessagesVBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ChatPanelContainer/ScrollContainer"]
 layout_mode = 2
@@ -68,13 +76,15 @@ layout_mode = 2
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="TextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/ResponseHBoxContainer"]
+[node name="ResponseTextEdit" type="TextEdit" parent="MarginContainer/VBoxContainer/ResponseHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 16
 placeholder_text = "Enter your thoughts here..."
 
-[node name="Button" type="Button" parent="MarginContainer/VBoxContainer/ResponseHBoxContainer"]
+[node name="SendButton" type="Button" parent="MarginContainer/VBoxContainer/ResponseHBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "Send"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ResponseHBoxContainer/SendButton" to="." method="_on_send_button_pressed"]
