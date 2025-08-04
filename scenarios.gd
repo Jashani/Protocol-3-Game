@@ -10,7 +10,7 @@ func _ready() -> void:
 
 
 func get_scenario() -> Dictionary:
-	return scenarios.pop_back()
+	return scenarios.pop_front()
 
 
 func _load_scenarios() -> void:
