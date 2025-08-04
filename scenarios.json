@@ -1,0 +1,29 @@
+[
+	{
+		"id": 1,
+		"title": "Chicago Study Finds Police Disproportionately Use Force in Predominantly Black Neighborhoods",
+		"responses": [
+			{ "type": "true", "text": "Yea I don't doubt it." },
+			{ "type": "false", "text": "Unreliable, there's definitely more context" },
+			{ "type": "true", "text": "probably still true." }
+		]
+	},
+	{
+		"id": 2,
+		"title": "Wind Turbine Failures Increased 70% Over Two Years, Raising Questions About Long-Term Viability",
+		"responses": [
+			{ "type": "true", "text": "makes sense, it's a rushed technology" },
+			{ "type": "false", "text": "That's a big number... Sounds suspicious." },
+			{ "type": "unsure", "text": "Idk anything about this." }
+		]
+	},
+	{
+		"id": 3,
+		"title": "Migrant Workers in Texas Denied Medical Care Despite Paying into State Insurance Pool",
+		"responses": [
+			{ "type": "true", "text": "yea this happens" },
+			{ "type": "true", "text": "Sounds about right."},
+			{ "type": "true", "text": "Not surprising lol"}
+		]
+	}
+]
