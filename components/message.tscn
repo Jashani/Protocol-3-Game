@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://cut142oiv40j7"]
 
-[ext_resource type="Script" uid="uid://by8p56fp2qo6i" path="res://message.gd" id="1_06ydw"]
+[ext_resource type="Script" uid="uid://by8p56fp2qo6i" path="res://components/message.gd" id="1_06ydw"]
 [ext_resource type="Texture2D" uid="uid://b5pqo3b8cbjtd" path="res://icon.svg" id="1_d26o2"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06ydw"]
