@@ -4,37 +4,39 @@ extends Control
 @export var message_scene: PackedScene
 @export var slider_popup_scene: PackedScene
 
-@export var player_position: int = 2
 @export var response_text_edit: TextEdit
 @export var messages_container: Container
 @export var scroll_container: ScrollContainer
 @export var title_label: Label
+@export var random_timer: Timer
+
+# The player's position in the response order
+@export var player_position: int = 2
+# Max seconds for a non-player response
+@export var max_wait_for_npc_response: float = 3.0
 
 var scenario: Dictionary
+
+var random = RandomNumberGenerator.new()
 
 
 func _ready() -> void:
 	_setup_scene()
 	_send_responses()
-	_create_slider_popup()
 
 
 func _send_responses() -> void:
 	var responses: Array = scenario["responses"]
 	for index in responses.size():
-		# -2 because it should be _before_ response x-1
-		if index - 2 == player_position:
-			_wait_for_player_input()
-		_random_input_wait()
+		if index + 1 == player_position:
+			await _wait_for_player_input()
+		await _wait_random(max_wait_for_npc_response)
 		_add_message(responses[index]["text"], responses[index]["type"])
 
 
-func _random_input_wait() -> void:
-	pass
-
-
 func _wait_for_player_input() -> void:
-	pass
+	var slider_popup: SliderPopup = _create_slider_popup()
+	await slider_popup.complete
 
 
 func _setup_scene() -> void:
@@ -53,9 +55,10 @@ func _add_message(text: String, valence: String) -> void:
 	messages_container.add_child(message)
 
 
-func _create_slider_popup() -> void:
+func _create_slider_popup() -> SliderPopup:
 	var slider_popup = slider_popup_scene.instantiate()
 	add_child(slider_popup)
+	return slider_popup
 
 
 func _set_valence(valence: String, message: Message) -> void:
@@ -68,3 +71,8 @@ func _set_valence(valence: String, message: Message) -> void:
 			message.set_neutral()
 		_:
 			push_error("Failed to parse message valence: " + valence)
+
+
+func _wait_random(max_seconds: float) -> void:
+	var wait_time = random.randf_range(0, max_seconds)
+	await get_tree().create_timer(wait_time).timeout

@@ -1,4 +1,8 @@
+class_name SliderPopup
 extends Control
+
+
+signal complete
 
 
 @export var popup_parent: Control = null
@@ -6,6 +10,7 @@ extends Control
 
 func _on_submit_button_pressed() -> void:
 	_save_data()
+	complete.emit()
 	_close_popup()
 
 
