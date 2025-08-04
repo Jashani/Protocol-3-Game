@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kfc6"]
 bg_color = Color(0.210764, 0.253468, 0.315617, 1)
 
-[node name="DiscussionRoom" type="Control" node_paths=PackedStringArray("response_text_edit", "messages_container", "scroll_container")]
+[node name="DiscussionRoom" type="Control" node_paths=PackedStringArray("response_text_edit", "messages_container", "scroll_container", "title_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -23,6 +23,7 @@ slider_popup_scene = ExtResource("3_xohqb")
 response_text_edit = NodePath("MarginContainer/VBoxContainer/ResponseHBoxContainer/ResponseTextEdit")
 messages_container = NodePath("MarginContainer/VBoxContainer/ChatPanelContainer/ScrollContainer/MessagesVBoxContainer")
 scroll_container = NodePath("MarginContainer/VBoxContainer/ChatPanelContainer/ScrollContainer")
+title_label = NodePath("MarginContainer/VBoxContainer/TitlePanelContainer/TitleLabel")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
