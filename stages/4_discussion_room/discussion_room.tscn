@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://ifh262tmpcqu"]
+[gd_scene load_steps=7 format=3 uid="uid://ifh262tmpcqu"]
 
 [ext_resource type="PackedScene" uid="uid://cut142oiv40j7" path="res://components/message.tscn" id="1_bkbga"]
 [ext_resource type="Script" uid="uid://ddcg7xhcq8dew" path="res://stages/4_discussion_room/discussion_room.gd" id="1_teow2"]
 [ext_resource type="Script" uid="uid://bh2343pjo6uqy" path="res://components/scroll_container.gd" id="3_wye38"]
 [ext_resource type="PackedScene" uid="uid://dif1titn6wnkc" path="res://components/slider_popup.tscn" id="3_xohqb"]
+[ext_resource type="PackedScene" uid="uid://bankhao6tie43" path="res://components/opinion_popup.tscn" id="4_26afn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kfc6"]
 bg_color = Color(0.210764, 0.253468, 0.315617, 1)
@@ -20,6 +21,7 @@ size_flags_vertical = 3
 script = ExtResource("1_teow2")
 message_scene = ExtResource("1_bkbga")
 slider_popup_scene = ExtResource("3_xohqb")
+opinion_popup_scene = ExtResource("4_26afn")
 response_text_edit = NodePath("MarginContainer/VBoxContainer/ResponseHBoxContainer/ResponseTextEdit")
 messages_container = NodePath("MarginContainer/VBoxContainer/ChatPanelContainer/ScrollContainer/MessagesVBoxContainer")
 scroll_container = NodePath("MarginContainer/VBoxContainer/ChatPanelContainer/ScrollContainer")

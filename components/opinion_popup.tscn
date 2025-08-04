@@ -1,0 +1,147 @@
+[gd_scene load_steps=3 format=3 uid="uid://bankhao6tie43"]
+
+[ext_resource type="Script" uid="uid://jo4vk157jp7x" path="res://components/opinion_popup.gd" id="1_3qi6b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fatv"]
+content_margin_left = 50.0
+content_margin_top = 20.0
+content_margin_right = 50.0
+content_margin_bottom = 20.0
+bg_color = Color(0.20627, 0.243714, 0.270407, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0.140495, 0.159856, 0.17498, 1)
+
+[node name="OpinionPopup" type="Control" node_paths=PackedStringArray("title", "input", "submit_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3qi6b")
+title = NodePath("PopupContainer/Title")
+input = NodePath("PopupContainer/ResponseTextEdit")
+submit_button = NodePath("PopupContainer/SubmitButton")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0, 0, 0, 0.407843)
+
+[node name="PopupContainer" type="Panel" parent="."]
+custom_minimum_size = Vector2(200, 100)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.118
+anchor_top = 0.243
+anchor_right = 0.882
+anchor_bottom = 0.757
+offset_left = 0.439987
+offset_top = -0.440002
+offset_right = -0.440063
+offset_bottom = 0.439941
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+theme_override_styles/panel = SubResource("StyleBoxFlat_5fatv")
+
+[node name="SubmitButton" type="Button" parent="PopupContainer"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+anchor_left = 0.884
+anchor_top = 0.874
+anchor_right = 0.966
+anchor_bottom = 0.964
+offset_left = 0.0559082
+offset_top = 0.0559998
+offset_right = -0.156006
+offset_bottom = 0.0159912
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+text = "Submit"
+
+[node name="Title" type="Label" parent="PopupContainer"]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 2
+anchor_left = 0.034
+anchor_top = 0.036
+anchor_right = 0.966
+anchor_bottom = 0.239
+offset_left = 0.155998
+offset_top = -0.0160007
+offset_right = -0.156006
+offset_bottom = 0.115997
+size_flags_vertical = 2
+theme_override_font_sizes/font_size = 40
+text = "It's your turn to share your thoughts. How do you feel about the statement?"
+horizontal_alignment = 1
+autowrap_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.214
+anchor_top = 0.318
+anchor_right = 0.786
+anchor_bottom = 0.5
+offset_left = -0.72403
+offset_top = 0.191986
+offset_right = 0.723999
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+
+[node name="SupportButton" type="Button" parent="PopupContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 42
+text = "Support"
+
+[node name="UnsureButton" type="Button" parent="PopupContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 42
+text = "Unsure"
+
+[node name="OpposeButton" type="Button" parent="PopupContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 42
+text = "Oppose"
+
+[node name="ResponseTextEdit" type="TextEdit" parent="PopupContainer"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.032
+anchor_top = 0.543
+anchor_right = 0.968
+anchor_bottom = 0.847
+offset_left = 0.0879974
+offset_top = 0.09198
+offset_right = -0.0881348
+offset_bottom = 0.0679626
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+placeholder_text = "Enter your thoughts here..."
+
+[connection signal="pressed" from="PopupContainer/SubmitButton" to="." method="_on_submit_button_pressed"]
+[connection signal="pressed" from="PopupContainer/HBoxContainer/SupportButton" to="." method="_on_support_button_pressed"]
+[connection signal="pressed" from="PopupContainer/HBoxContainer/UnsureButton" to="." method="_on_unsure_button_pressed"]
+[connection signal="pressed" from="PopupContainer/HBoxContainer/OpposeButton" to="." method="_on_oppose_button_pressed"]
+[connection signal="text_changed" from="PopupContainer/ResponseTextEdit" to="." method="_on_response_text_edit_text_changed"]
