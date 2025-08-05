@@ -1,0 +1,71 @@
+[gd_scene load_steps=3 format=3 uid="uid://bmfoyx83weo2d"]
+
+[ext_resource type="Script" uid="uid://bccumkxmyammr" path="res://stages/2_demographics/demographics.gd" id="1_0tfen"]
+[ext_resource type="PackedScene" uid="uid://2folercq3bco" path="res://stages/3_waiting_room/waiting_room.tscn" id="2_efo31"]
+
+[node name="Demographics" type="Control" node_paths=PackedStringArray("proceed_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_0tfen")
+proceed_button = NodePath("Panel/ProceedButton")
+next_scene = ExtResource("2_efo31")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 14.0
+offset_right = 1902.0
+offset_bottom = 93.0
+theme_override_font_sizes/font_size = 42
+text = "Before we start let us know a little bit about yourself! All data is anonymized."
+
+[node name="AffiliationList" type="ItemList" parent="Panel"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 220.0
+offset_right = 426.0
+offset_bottom = 342.0
+theme_override_font_sizes/font_size = 24
+item_count = 3
+item_0/text = "Republican"
+item_1/text = "Democrat"
+item_2/text = "Other/Prefer not to say"
+
+[node name="AffiliationTitle" type="Label" parent="Panel"]
+layout_mode = 0
+offset_left = 28.0
+offset_top = 169.0
+offset_right = 1914.0
+offset_bottom = 211.0
+theme_override_font_sizes/font_size = 30
+text = "In general, how would you label your political affiliation?"
+
+[node name="ProceedButton" type="Button" parent="Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1672.0
+offset_top = 983.0
+offset_right = -35.0
+offset_bottom = -38.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 24
+disabled = true
+text = "Proceed"
+
+[connection signal="item_selected" from="Panel/AffiliationList" to="." method="_on_affiliation_list_item_selected"]
+[connection signal="pressed" from="Panel/ProceedButton" to="." method="_on_proceed_button_pressed"]

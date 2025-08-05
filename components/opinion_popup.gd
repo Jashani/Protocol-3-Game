@@ -10,7 +10,6 @@ signal complete(opinion, text)
 @export var submit_button: Button = null
 
 
-enum Opinion {SUPPORT, UNSURE, OPPOSE}
 var selected_opinion: String # Opinion
 
 

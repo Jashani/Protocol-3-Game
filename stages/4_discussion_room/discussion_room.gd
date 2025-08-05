@@ -4,8 +4,8 @@ extends Control
 @export var message_scene: PackedScene
 @export var slider_popup_scene: PackedScene
 @export var opinion_popup_scene: PackedScene
+@export var next_scene: PackedScene
 
-@export var response_text_edit: TextEdit
 @export var messages_container: Container
 @export var scroll_container: ScrollContainer
 @export var title_label: Label
@@ -17,6 +17,10 @@ extends Control
 @export var max_wait_for_npc_response: float = 3.0
 ## Min seconds for a non-player response
 @export var min_wait_for_npc_response: float = 0.0
+## Wait time after preceding response, before player is prompted
+@export var wait_before_prompt: float = 3.0
+## Wait time after last response
+@export var wait_after_last_response: float = 5.0
 
 
 var scenario: Dictionary
@@ -25,9 +29,16 @@ var random = RandomNumberGenerator.new()
 
 
 func _ready() -> void:
+	scenario = Scenarios.get_scenario()
+	_run()
+
+
+func _run() -> void:
 	_setup_scene()
 	await _rate_headline()
-	_send_responses()
+	await _send_responses()
+	await get_tree().create_timer(wait_after_last_response).timeout
+	_next()
 
 
 func _rate_headline() -> void:
@@ -40,7 +51,7 @@ func _send_responses() -> void:
 	var responses: Array = scenario["responses"]
 	for index in responses.size():
 		if index + 1 == player_position:
-			await get_tree().create_timer(3.0).timeout
+			await get_tree().create_timer(wait_before_prompt).timeout
 			await _get_player_opinion()
 		await _wait_random(min_wait_for_npc_response, max_wait_for_npc_response)
 		_add_message(responses[index]["text"], responses[index]["type"])
@@ -62,12 +73,7 @@ func _get_player_opinion() -> void:
 
 
 func _setup_scene() -> void:
-	scenario = Scenarios.get_scenario()
 	title_label.text = scenario["title"]
-
-
-func _on_send_button_pressed() -> void:
-	_add_message(response_text_edit.text, "true")
 
 
 func _add_message(text: String, valence: String) -> void:
@@ -104,3 +110,10 @@ func _set_valence(valence: String, message: Message) -> void:
 func _wait_random(min_seconds: float, max_seconds: float) -> void:
 	var wait_time = random.randf_range(min_seconds, max_seconds)
 	await get_tree().create_timer(wait_time).timeout
+
+
+func _next() -> void:
+	if Scenarios.remaining_scenarios() == 0:
+		get_tree().change_scene_to_packed(next_scene)
+	else:
+		get_tree().reload_current_scene()

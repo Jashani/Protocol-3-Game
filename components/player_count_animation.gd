@@ -11,7 +11,11 @@ var current_players: int
 
 
 func _ready() -> void:
-	current_players = random.randi_range(1, max_players)
+	current_players = random.randi_range(1, max_players - 1) # -1 because of below
+	# For some reason, changing scenes immediately upon ready totally breaks everything...
+	# We work around this with the -1 above.
+	#if current_players == max_players:
+		#emit_signal("reached_max_players")
 	_update_label()
 	_randomize_add_player()
 
