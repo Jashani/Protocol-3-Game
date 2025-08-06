@@ -10,6 +10,9 @@ extends HBoxContainer
 @export var neutral_style: StyleBoxFlat
 
 
+func set_icon_left() -> void:
+	move_child(backround_panel, 1)
+
 func set_text(text: String) -> void:
 	response_label.text = text
 

@@ -101,6 +101,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 24
 text = "This is my opinion!"
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="CharacterTexture" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("1_d26o2")

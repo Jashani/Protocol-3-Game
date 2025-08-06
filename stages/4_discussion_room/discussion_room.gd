@@ -69,17 +69,19 @@ func _get_player_opinion() -> void:
 	var result = await opinion_popup.complete
 	var opinion: String = result[0]
 	var text: String = result[1]
-	_add_message(text, opinion)
+	_add_message(text, opinion, true)
 
 
 func _setup_scene() -> void:
 	title_label.text = scenario["title"]
 
 
-func _add_message(text: String, valence: String) -> void:
+func _add_message(text: String, valence: String, is_player: bool = false) -> void:
 	var message = message_scene.instantiate()
 	message.set_text(text)
 	_set_valence(valence, message)
+	if is_player:
+		message.set_icon_left()
 	messages_container.add_child(message)
 
 
