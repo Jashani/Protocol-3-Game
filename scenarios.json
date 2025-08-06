@@ -3,27 +3,27 @@
 		"id": 1,
 		"title": "Chicago Study Finds Police Disproportionately Use Force in Predominantly Black Neighborhoods",
 		"responses": [
-			{ "type": "true", "text": "Yea I don't doubt it." },
-			{ "type": "false", "text": "Unreliable, there's definitely more context" },
-			{ "type": "true", "text": "probably still true." }
+			{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" },
+			{ "type": "false", "text": "Unreliable, there's definitely more context", "affiliation": "republican" },
+			{ "type": "true", "text": "probably still true.", "affiliation": "democrat" }
 		]
 	},
 	{
 		"id": 2,
 		"title": "Wind Turbine Failures Increased 70% Over Two Years, Raising Questions About Long-Term Viability",
 		"responses": [
-			{ "type": "true", "text": "makes sense, it's a rushed technology" },
-			{ "type": "false", "text": "That's a big number... Sounds suspicious." },
-			{ "type": "unsure", "text": "Idk anything about this." }
+			{ "type": "true", "text": "makes sense, it's a rushed technology", "affiliation": "republican" },
+			{ "type": "false", "text": "That's a big number... Sounds suspicious.", "affiliation": "democrat" },
+			{ "type": "unsure", "text": "Idk anything about this.", "affiliation": "democrat" }
 		]
 	},
 	{
 		"id": 3,
 		"title": "Migrant Workers in Texas Denied Medical Care Despite Paying into State Insurance Pool",
 		"responses": [
-			{ "type": "true", "text": "yea this happens" },
-			{ "type": "true", "text": "Sounds about right."},
-			{ "type": "true", "text": "Not surprising lol"}
+			{ "type": "true", "text": "yea this happens", "affiliation": "other" },
+			{ "type": "true", "text": "Sounds about right.", "affiliation": "republican" },
+			{ "type": "true", "text": "Not surprising lol", "affiliation": "democrat" }
 		]
 	}
 ]

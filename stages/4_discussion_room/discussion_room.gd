@@ -50,11 +50,13 @@ func _rate_headline() -> void:
 func _send_responses() -> void:
 	var responses: Array = scenario["responses"]
 	for index in responses.size():
+		var response = responses[index]
 		if index + 1 == player_position:
 			await get_tree().create_timer(wait_before_prompt).timeout
 			await _get_player_opinion()
 		await _wait_random(min_wait_for_npc_response, max_wait_for_npc_response)
-		_add_message(responses[index]["text"], responses[index]["type"])
+		var affiliation = Globals.str_to_affiliation(response["affiliation"])
+		_add_message(response["text"], response["type"], affiliation)
 
 
 func _get_player_opinion() -> void:
@@ -69,17 +71,19 @@ func _get_player_opinion() -> void:
 	var result = await opinion_popup.complete
 	var opinion: String = result[0]
 	var text: String = result[1]
-	_add_message(text, opinion, true)
+	_add_message(text, opinion, Globals.player_affiliation, true)
 
 
 func _setup_scene() -> void:
 	title_label.text = scenario["title"]
 
 
-func _add_message(text: String, valence: String, is_player: bool = false) -> void:
+func _add_message(text: String, valence: String, affiliation: Globals.Affiliation,
+					is_player: bool = false) -> void:
 	var message = message_scene.instantiate()
 	message.set_text(text)
 	_set_valence(valence, message)
+	message.set_affiliation(affiliation)
 	if is_player:
 		message.set_icon_left()
 	messages_container.add_child(message)
