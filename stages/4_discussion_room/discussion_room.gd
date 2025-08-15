@@ -54,9 +54,10 @@ func _send_responses() -> void:
 		if index + 1 == player_position:
 			await get_tree().create_timer(wait_before_prompt).timeout
 			await _get_player_opinion()
-		await _wait_random(min_wait_for_npc_response, max_wait_for_npc_response)
 		var affiliation = Globals.str_to_affiliation(response["affiliation"])
-		_add_message(response["text"], response["type"], affiliation)
+		var message = _add_empty_message(affiliation)
+		await _wait_random(min_wait_for_npc_response, max_wait_for_npc_response)
+		_update_message(message, response["text"], response["type"])
 
 
 func _get_player_opinion() -> void:
@@ -81,12 +82,24 @@ func _setup_scene() -> void:
 func _add_message(text: String, valence: String, affiliation: Affiliation,
 					is_player: bool = false) -> void:
 	var message = message_scene.instantiate()
+	messages_container.add_child(message)
 	message.set_text(text)
 	_set_valence(valence, message)
 	message.set_affiliation(affiliation)
 	if is_player:
 		message.set_icon_left()
+
+
+func _add_empty_message(affiliation: Affiliation) -> Message:
+	var message = message_scene.instantiate()
+	message.set_affiliation(affiliation)
 	messages_container.add_child(message)
+	return message
+
+
+func _update_message(message: Message, text: String, valence: String) -> void:
+	message.set_text(text)
+	_set_valence(valence, message)
 
 
 func _create_slider_popup() -> SliderPopup:
