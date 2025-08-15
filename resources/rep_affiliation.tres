@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Affiliation" load_steps=3 format=3 uid="uid://54yn47ytgn77"]
+
+[ext_resource type="Texture2D" uid="uid://ul7n572uvq3d" path="res://textures/red_icon.svg" id="1_fmalt"]
+[ext_resource type="Script" uid="uid://coqsuxlw3ldmn" path="res://resources/affiliation.gd" id="2_7gnny"]
+
+[resource]
+script = ExtResource("2_7gnny")
+text = "Republican"
+icon = ExtResource("1_fmalt")
+color = Color(0.845857, 0.344829, 0.339471, 1)

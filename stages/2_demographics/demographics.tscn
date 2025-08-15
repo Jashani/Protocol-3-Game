@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bmfoyx83weo2d"]
+[gd_scene load_steps=6 format=3 uid="uid://bmfoyx83weo2d"]
 
 [ext_resource type="Script" uid="uid://bccumkxmyammr" path="res://stages/2_demographics/demographics.gd" id="1_0tfen"]
 [ext_resource type="PackedScene" uid="uid://2folercq3bco" path="res://stages/3_waiting_room/waiting_room.tscn" id="2_efo31"]
+[ext_resource type="Resource" uid="uid://54yn47ytgn77" path="res://resources/rep_affiliation.tres" id="3_o7ebv"]
+[ext_resource type="Resource" uid="uid://m7pea10tukgh" path="res://resources/dem_affiliation.tres" id="4_sholv"]
+[ext_resource type="Resource" uid="uid://51akueaa2oyr" path="res://resources/other_affiliation.tres" id="5_xk0bc"]
 
 [node name="Demographics" type="Control" node_paths=PackedStringArray("proceed_button")]
 layout_mode = 3
@@ -13,6 +16,9 @@ grow_vertical = 2
 script = ExtResource("1_0tfen")
 proceed_button = NodePath("Panel/ProceedButton")
 next_scene = ExtResource("2_efo31")
+rep_affiliation = ExtResource("3_o7ebv")
+dem_affiliation = ExtResource("4_sholv")
+other_affiliation = ExtResource("5_xk0bc")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1

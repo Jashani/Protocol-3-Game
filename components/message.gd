@@ -5,26 +5,18 @@ extends HBoxContainer
 @export var response_label: Label
 @export var backround_panel: PanelContainer
 @export var icon: TextureRect
+@export var affiliation_label: Label
 
 @export var true_style: StyleBoxFlat
 @export var false_style: StyleBoxFlat
 @export var neutral_style: StyleBoxFlat
 
-@export var rep_icon: Texture
-@export var dem_icon: Texture
-@export var other_icon: Texture
 
+func set_affiliation(affiliation: Affiliation) -> void:
+	icon.texture = affiliation.icon
+	affiliation_label.text = affiliation.text
+	affiliation_label.add_theme_color_override('font_color', affiliation.color)
 
-func set_affiliation(affiliation: Globals.Affiliation) -> void:
-	match affiliation:
-		Globals.Affiliation.REPUBLICAN:
-			icon.texture = rep_icon
-		Globals.Affiliation.DEMOCRAT:
-			icon.texture = dem_icon
-		Globals.Affiliation.OTHER:
-			icon.texture = other_icon
-		_:
-			push_error("Failed to identify affiliation when setting icon")
 
 func set_icon_left() -> void:
 	move_child(backround_panel, 1)
