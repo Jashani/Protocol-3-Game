@@ -101,7 +101,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_d72jl")
 
 [node name="ResponseLabel" type="Label" parent="PanelContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 42
 text = "This is my opinion!"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
