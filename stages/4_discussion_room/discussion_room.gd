@@ -78,7 +78,7 @@ func _setup_scene() -> void:
 	title_label.text = scenario["title"]
 
 
-func _add_message(text: String, valence: String, affiliation: Globals.Affiliation,
+func _add_message(text: String, valence: String, affiliation: Affiliation,
 					is_player: bool = false) -> void:
 	var message = message_scene.instantiate()
 	message.set_text(text)

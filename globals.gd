@@ -3,19 +3,21 @@ extends Node
 enum Opinion {SUPPORT, UNSURE, OPPOSE}
 
 var player_affiliation: Affiliation
+var affiliations: Affiliations = preload("res://resources/affiliations.tres")
+var test: int = 1
 
 
 func str_to_affiliation(str: String) -> Affiliation:
 	match str.to_lower():
 		"republican":
-			return Affiliation.REPUBLICAN
-		"democraft":
-			return Affiliation.DEMOCRAT
+			return affiliations.republican
+		"democrat":
+			return affiliations.democrat
 		"other":
-			return Affiliation.OTHER
+			return affiliations.other
 		_:
 			push_error("Failed to parse str to affiliation: " + str)
-	return -1
+	return null
 
 
 func str_to_opinion(str: String) -> Opinion:

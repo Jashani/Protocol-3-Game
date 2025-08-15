@@ -18,6 +18,7 @@ config/icon="res://textures/icon.svg"
 
 Scenarios="*res://scenarios.gd"
 Globals="*res://globals.gd"
+Data="*res://data.gd"
 
 [display]
 
