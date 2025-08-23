@@ -14,7 +14,7 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.140495, 0.159856, 0.17498, 1)
 
-[node name="SliderPopup" type="Control" node_paths=PackedStringArray("title", "left_label", "right_label")]
+[node name="SliderPopup" type="Control" node_paths=PackedStringArray("slider", "title", "left_label", "right_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -22,6 +22,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_60drt")
+slider = NodePath("SliderContainer/VBoxContainer/HSlider")
 title = NodePath("SliderContainer/VBoxContainer/Title")
 left_label = NodePath("SliderContainer/VBoxContainer/LabelsContainer/LeftLabel")
 right_label = NodePath("SliderContainer/VBoxContainer/LabelsContainer/RightLabel")

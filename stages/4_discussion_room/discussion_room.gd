@@ -1,5 +1,8 @@
 extends Control
 
+const FIRST_HEADLINE_RATING_KEY = "belief_prior"
+const SECOND_HEADLINE_RATING_KEY = "belief_posterior"
+const RELIABILITY_RATING_KEY = "reliability"
 
 @export var message_scene: PackedScene
 @export var slider_popup_scene: PackedScene
@@ -23,32 +26,29 @@ extends Control
 @export var wait_after_last_response: float = 5.0
 
 
-var scenario: Dictionary
-
+var round: Round
 var random = RandomNumberGenerator.new()
 
 
 func _ready() -> void:
-	scenario = Scenarios.get_scenario()
+	round = Scenarios.get_scenario()
 	_run()
 
-
 func _run() -> void:
+	Data.new_round(round)
 	_setup_scene()
-	await _rate_headline()
+	await _rate_headline(FIRST_HEADLINE_RATING_KEY)
 	await _send_responses()
 	await get_tree().create_timer(wait_after_last_response).timeout
 	_next()
 
-
-func _rate_headline() -> void:
-	var slider_popup: SliderPopup = _create_slider_popup()
+func _rate_headline(key: String) -> void:
+	var slider_popup: SliderPopup = _create_slider_popup(key)
 	slider_popup.set_title("How likely do you think the headline is to be true?")
 	await slider_popup.complete
 
-
 func _send_responses() -> void:
-	var responses: Array = scenario["responses"]
+	var responses: Array = round.responses
 	for index in responses.size():
 		var response = responses[index]
 		if index + 1 == player_position:
@@ -59,22 +59,19 @@ func _send_responses() -> void:
 		await _wait_random(min_wait_for_npc_response, max_wait_for_npc_response)
 		_update_message(message, response["text"], response["type"])
 
-
 func _get_player_opinion() -> void:
-	_rate_headline()
-	_rate_other_player_reliability()
-	_write_opinion()
-
+	await _rate_headline(SECOND_HEADLINE_RATING_KEY)
+	await _rate_other_player_reliability()
+	await _write_opinion()
 
 func _rate_other_player_reliability() -> void:
-	var slider_popup: SliderPopup = _create_slider_popup()
+	var slider_popup: SliderPopup = _create_slider_popup(RELIABILITY_RATING_KEY)
 	slider_popup.set_title("""How reliable is the first player? \
 							I.e. how likely are they to make an accurate \
 							statement in response to the headline""")
 	slider_popup.set_left_label("Very unreliable")
 	slider_popup.set_right_label("Very reliable")
 	await slider_popup.complete
-
 
 func _write_opinion() -> void:
 	var opinion_popup: OpinionPopup = _create_opinion_popup()
@@ -83,10 +80,8 @@ func _write_opinion() -> void:
 	var text: String = result[1]
 	_add_message(text, opinion, Globals.player_affiliation, true)
 
-
 func _setup_scene() -> void:
-	title_label.text = scenario["title"]
-
+	title_label.text = round.title
 
 func _add_message(text: String, valence: String, affiliation: Affiliation,
 					is_player: bool = false) -> void:
@@ -98,30 +93,26 @@ func _add_message(text: String, valence: String, affiliation: Affiliation,
 	if is_player:
 		message.set_icon_left()
 
-
 func _add_empty_message(affiliation: Affiliation) -> Message:
 	var message = message_scene.instantiate()
 	message.set_affiliation(affiliation)
 	messages_container.add_child(message)
 	return message
 
-
 func _update_message(message: Message, text: String, valence: String) -> void:
 	message.set_text(text)
 	_set_valence(valence, message)
 
-
-func _create_slider_popup() -> SliderPopup:
-	var slider_popup = slider_popup_scene.instantiate()
+func _create_slider_popup(key: String) -> SliderPopup:
+	var slider_popup: SliderPopup = slider_popup_scene.instantiate()
+	slider_popup.set_data_key(key)
 	add_child(slider_popup)
 	return slider_popup
 
-
 func _create_opinion_popup() -> OpinionPopup:
-	var opinion_popup = opinion_popup_scene.instantiate()
+	var opinion_popup: OpinionPopup = opinion_popup_scene.instantiate()
 	add_child(opinion_popup)
 	return opinion_popup
-
 
 func _set_valence(valence: String, message: Message) -> void:
 	match valence:
@@ -134,11 +125,9 @@ func _set_valence(valence: String, message: Message) -> void:
 		_:
 			push_error("Failed to parse message valence: " + valence)
 
-
 func _wait_random(min_seconds: float, max_seconds: float) -> void:
 	var wait_time = random.randf_range(min_seconds, max_seconds)
 	await get_tree().create_timer(wait_time).timeout
-
 
 func _next() -> void:
 	if Scenarios.remaining_scenarios() == 0:

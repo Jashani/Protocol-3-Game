@@ -4,5 +4,5 @@ extends Resource
 
 @export var id: int
 @export var title: String
-@export var responses: Array[Dictionary]
+@export var responses: Array
 @export var type: String

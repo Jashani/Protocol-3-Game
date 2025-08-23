@@ -5,7 +5,7 @@
 
 extends Node
 
-const FILE_PATH: String = "" # TODO: Determine
+const FILE_PATH: String = "res://test.csv" # TODO: Determine
 const HEADERS: PackedStringArray = ["participant_id",
 	"participant_affiliation", "age", "education",
 	"gender", "round", "headline", "player_affiliation",
@@ -13,7 +13,7 @@ const HEADERS: PackedStringArray = ["participant_id",
 	"reliability", "post_valence", "post_content"]
 
 var rounds: Array[Dictionary]
-var participant_id: int
+var participant_id: int = 0 # TODO: set properly
 
 func _ready() -> void:
 	check_connectivity()
@@ -33,7 +33,7 @@ func new_round(round: Round) -> void:
 		"player_affiliation": round.responses[0]["affiliation"],
 		"comment": round.responses[0]["type"] # TODO: Validate this is correct
 	}
-	rounds.append({})
+	rounds.append(round_dict)
 
 func save_value(key: String, value):
 	assert(rounds.size() > 0, "Trying to save value, but no rounds!")
@@ -47,7 +47,7 @@ func save_file():
 	file.store_csv_line(HEADERS)
 	
 	for round in rounds:
-		var row: PackedStringArray
+		var row: PackedStringArray = []
 		for header in HEADERS:
 			var value = str(round.get(header, ""))
 			row.append(value)
@@ -55,3 +55,5 @@ func save_file():
 		file.store_csv_line(row)
 	
 	file.flush()
+	file.close()
+	return true
