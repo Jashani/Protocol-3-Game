@@ -61,6 +61,12 @@ func _send_responses() -> void:
 
 
 func _get_player_opinion() -> void:
+	_rate_headline()
+	_rate_other_player_reliability()
+	_write_opinion()
+
+
+func _rate_other_player_reliability() -> void:
 	var slider_popup: SliderPopup = _create_slider_popup()
 	slider_popup.set_title("""How reliable is the first player? \
 							I.e. how likely are they to make an accurate \
@@ -68,6 +74,9 @@ func _get_player_opinion() -> void:
 	slider_popup.set_left_label("Very unreliable")
 	slider_popup.set_right_label("Very reliable")
 	await slider_popup.complete
+
+
+func _write_opinion() -> void:
 	var opinion_popup: OpinionPopup = _create_opinion_popup()
 	var result = await opinion_popup.complete
 	var opinion: String = result[0]
