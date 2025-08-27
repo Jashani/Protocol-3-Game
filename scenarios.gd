@@ -27,5 +27,5 @@ func _scenario_to_object(scenario: Dictionary) -> Round:
 	round.id = scenario['id']
 	round.title = scenario['title']
 	round.responses = scenario['responses']
-	# TODO: Add type
+	round.type = scenario['type']
 	return round
