@@ -1,10 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://bmfoyx83weo2d"]
+[gd_scene load_steps=5 format=3 uid="uid://bmfoyx83weo2d"]
 
 [ext_resource type="Script" uid="uid://bccumkxmyammr" path="res://stages/2_demographics/demographics.gd" id="1_0tfen"]
 [ext_resource type="PackedScene" uid="uid://2folercq3bco" path="res://stages/3_waiting_room/waiting_room.tscn" id="2_efo31"]
 [ext_resource type="Resource" uid="uid://kx6wmxdwxfhk" path="res://resources/affiliations.tres" id="3_hbp54"]
+[ext_resource type="Theme" uid="uid://bph7ukhpjtuji" path="res://stages/2_demographics/dropdown_theme.tres" id="4_vlkgp"]
 
-[node name="Demographics" type="Control" node_paths=PackedStringArray("proceed_button")]
+[node name="Demographics" type="Control" node_paths=PackedStringArray("proceed_button", "education_options", "gender_options")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -14,6 +15,8 @@ grow_vertical = 2
 script = ExtResource("1_0tfen")
 proceed_button = NodePath("Panel/ProceedButton")
 next_scene = ExtResource("2_efo31")
+education_options = NodePath("Panel/VBoxContainer/EducationOptions")
+gender_options = NodePath("Panel/VBoxContainer/GenderOptions")
 affiliations = ExtResource("3_hbp54")
 
 [node name="Panel" type="Panel" parent="."]
@@ -33,27 +36,6 @@ offset_bottom = 93.0
 theme_override_font_sizes/font_size = 42
 text = "Before we start let us know a little bit about yourself! All data is anonymized."
 
-[node name="AffiliationList" type="ItemList" parent="Panel"]
-layout_mode = 0
-offset_left = 27.0
-offset_top = 220.0
-offset_right = 426.0
-offset_bottom = 342.0
-theme_override_font_sizes/font_size = 24
-item_count = 3
-item_0/text = "Republican"
-item_1/text = "Democrat"
-item_2/text = "Other/Prefer not to say"
-
-[node name="AffiliationTitle" type="Label" parent="Panel"]
-layout_mode = 0
-offset_left = 28.0
-offset_top = 169.0
-offset_right = 1914.0
-offset_bottom = 211.0
-theme_override_font_sizes/font_size = 30
-text = "In general, how would you label your political affiliation?"
-
 [node name="ProceedButton" type="Button" parent="Panel"]
 layout_mode = 1
 anchors_preset = 15
@@ -69,5 +51,97 @@ theme_override_font_sizes/font_size = 24
 disabled = true
 text = "Proceed"
 
-[connection signal="item_selected" from="Panel/AffiliationList" to="." method="_on_affiliation_list_item_selected"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -413.0
+offset_top = -405.0
+offset_right = 413.0
+offset_bottom = 499.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+
+[node name="AffiliationTitle" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "In general, how would you label your political affiliation?"
+
+[node name="AffiliationList" type="ItemList" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 24
+allow_search = false
+auto_width = true
+auto_height = true
+item_count = 3
+item_0/text = "Republican"
+item_1/text = "Democrat"
+item_2/text = "Other/Prefer not to say"
+
+[node name="AgeTitle" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "What is your age?"
+
+[node name="AgeBox" type="SpinBox" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_vlkgp")
+max_value = 150.0
+rounded = true
+
+[node name="EducationTitle" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "What is the highest level of education you have completed?"
+
+[node name="EducationOptions" type="OptionButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_vlkgp")
+theme_override_font_sizes/font_size = 24
+item_count = 8
+popup/item_0/text = "12th grade or less"
+popup/item_0/id = 0
+popup/item_1/text = "High school or equivalent"
+popup/item_1/id = 1
+popup/item_2/text = "Associate degree"
+popup/item_2/id = 2
+popup/item_3/text = "Bachelor's degree"
+popup/item_3/id = 3
+popup/item_4/text = "Master's degree"
+popup/item_4/id = 4
+popup/item_5/text = "Doctorate"
+popup/item_5/id = 5
+popup/item_6/text = "Other"
+popup/item_6/id = 6
+popup/item_7/text = "Prefer not to say"
+popup/item_7/id = 7
+
+[node name="GenderTitle" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "What is your gender?"
+
+[node name="GenderOptions" type="OptionButton" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_vlkgp")
+theme_override_font_sizes/font_size = 24
+item_count = 4
+popup/item_0/text = "Female"
+popup/item_0/id = 0
+popup/item_1/text = "Male"
+popup/item_1/id = 1
+popup/item_2/text = "Other"
+popup/item_2/id = 2
+popup/item_3/text = "Prefer not to say"
+popup/item_3/id = 3
+
 [connection signal="pressed" from="Panel/ProceedButton" to="." method="_on_proceed_button_pressed"]
+[connection signal="item_selected" from="Panel/VBoxContainer/AffiliationList" to="." method="_on_affiliation_list_item_selected"]
+[connection signal="value_changed" from="Panel/VBoxContainer/AgeBox" to="." method="_on_age_box_value_changed"]
+[connection signal="item_selected" from="Panel/VBoxContainer/EducationOptions" to="." method="_on_education_options_item_selected"]
+[connection signal="item_selected" from="Panel/VBoxContainer/GenderOptions" to="." method="_on_gender_options_item_selected"]

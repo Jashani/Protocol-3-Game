@@ -3,19 +3,23 @@ extends Control
 
 @export var proceed_button: Button = null
 @export var next_scene: PackedScene = null
+@export var education_options: OptionButton = null
+@export var gender_options: OptionButton = null
 
 @export var affiliations: Affiliations
 
-func _ready() -> void:
-	_set_demographics()
+var demographics := Demographics.new()
 
-func _set_demographics() -> void: # TODO: implement!
-	var demographics := Demographics.new()
-	demographics.affiliation = "some_affiliation"
-	demographics.education = "some_education"
-	demographics.gender = "some_gender"
-	demographics.age = 99
+
+func _check_completion() -> void:
+	var fields := [demographics.affiliation, demographics.education,
+				   demographics.gender, demographics.age]
+	if not fields.has("") and not fields.has(0):
+		proceed_button.disabled = false
+
+func _on_proceed_button_pressed() -> void:
 	Globals.player_demographics = demographics
+	get_tree().change_scene_to_packed(next_scene)
 
 func _on_affiliation_list_item_selected(index: int) -> void:
 	match index:
@@ -27,7 +31,17 @@ func _on_affiliation_list_item_selected(index: int) -> void:
 			Globals.player_affiliation = affiliations.other
 		_:
 			push_error("Bad index when selecting player affiliation: " + str(index))
-	proceed_button.disabled = false
+	demographics.affiliation = Globals.player_affiliation.text
+	_check_completion()
 
-func _on_proceed_button_pressed() -> void:
-	get_tree().change_scene_to_packed(next_scene)
+func _on_age_box_value_changed(value: float) -> void:
+	demographics.age = int(value)
+	_check_completion()
+
+func _on_education_options_item_selected(index: int) -> void:
+	demographics.education = education_options.get_item_text(index)
+	_check_completion()
+
+func _on_gender_options_item_selected(index: int) -> void:
+	demographics.gender = gender_options.get_item_text(index)
+	_check_completion()
