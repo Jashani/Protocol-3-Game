@@ -4,6 +4,8 @@ extends Control
 
 signal complete(opinion, text)
 
+const VALENCE_KEY = "post_valence"
+const CONTENT_KEY = "post_content"
 
 @export var title: Label = null
 @export var input: TextEdit = null
@@ -29,7 +31,8 @@ func _on_submit_button_pressed() -> void:
 
 
 func _save_data() -> void:
-	pass
+	Data.save_value(VALENCE_KEY, selected_opinion)
+	Data.save_value(CONTENT_KEY, input.text)
 
 
 func _close_popup() -> void:

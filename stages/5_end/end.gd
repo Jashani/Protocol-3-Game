@@ -2,4 +2,6 @@ extends Control
 
 
 func _ready() -> void:
-	print("Hello!")
+	await Data.save_file()
+	print("All done!")
+	

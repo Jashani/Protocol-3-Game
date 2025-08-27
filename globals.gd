@@ -2,9 +2,9 @@ extends Node
 
 enum Opinion {SUPPORT, UNSURE, OPPOSE}
 
-var player_affiliation: Affiliation
+var player_demographics: Demographics
+var player_affiliation: Affiliation = preload("res://resources/other_affiliation.tres") # TODO: Don't preload this
 var affiliations: Affiliations = preload("res://resources/affiliations.tres")
-var test: int = 1
 
 
 func str_to_affiliation(str: String) -> Affiliation:
