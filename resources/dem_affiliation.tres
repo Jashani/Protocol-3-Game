@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Affiliation" load_steps=3 format=3 uid="uid://m7pea10tukgh"]
+[gd_resource type="Resource" script_class="Affiliation" load_steps=11 format=3 uid="uid://m7pea10tukgh"]
 
 [ext_resource type="Script" uid="uid://coqsuxlw3ldmn" path="res://resources/affiliation.gd" id="1_5sfb5"]
-[ext_resource type="Texture2D" uid="uid://b5pqo3b8cbjtd" path="res://textures/icon.svg" id="1_qoae0"]
+[ext_resource type="Texture2D" uid="uid://bf2cdghjq7st2" path="res://textures/blue_icon_0.svg" id="1_y3h5u"]
+[ext_resource type="Texture2D" uid="uid://dgrjbqgal5pcq" path="res://textures/blue_icon_1.svg" id="2_l6703"]
+[ext_resource type="Texture2D" uid="uid://b7llu82q7pk02" path="res://textures/blue_icon_2.svg" id="3_6gwa8"]
+[ext_resource type="Texture2D" uid="uid://pf0lg7cyvma6" path="res://textures/blue_icon_3.svg" id="4_fx80k"]
+[ext_resource type="Texture2D" uid="uid://6goqx3ikoai0" path="res://textures/blue_icon_4.svg" id="5_qomcx"]
+[ext_resource type="Texture2D" uid="uid://cbjpbllnhg0uf" path="res://textures/blue_icon_5.svg" id="6_vshrp"]
+[ext_resource type="Texture2D" uid="uid://dtwuknk27i5y1" path="res://textures/blue_icon_6.svg" id="7_6dram"]
+[ext_resource type="Texture2D" uid="uid://6hh67liwgcpy" path="res://textures/blue_icon_7.svg" id="8_uy6ab"]
+[ext_resource type="Texture2D" uid="uid://dxirxobniy5gy" path="res://textures/blue_icon_8.svg" id="9_srlr5"]
 
 [resource]
 script = ExtResource("1_5sfb5")
 text = "Democrat"
-icon = ExtResource("1_qoae0")
 color = Color(0.292278, 0.588872, 0.85269, 1)
+default_icon = ExtResource("1_y3h5u")
+icons = Array[Texture]([ExtResource("1_y3h5u"), ExtResource("2_l6703"), ExtResource("3_6gwa8"), ExtResource("4_fx80k"), ExtResource("5_qomcx"), ExtResource("6_vshrp"), ExtResource("7_6dram"), ExtResource("8_uy6ab"), ExtResource("9_srlr5")])

@@ -1,4 +1,0 @@
-participant_id,participant_affiliation,age,education,gender,round,headline,player_affiliation,comment,belief_prior,belief_posterior,reliability,post_valence,post_content
-0,Democrat,8,Master's degree,Male,1,left_crime,democrat,true,82.3,50.0,50.0,false,fwafwa
-0,Democrat,8,Master's degree,Male,2,right_environment,republican,true,50.0,50.0,50.0,unsure,fwfwafaw
-0,Democrat,8,Master's degree,Male,3,left_healthcare,other,true,50.0,50.0,50.0,unsure,fwafw

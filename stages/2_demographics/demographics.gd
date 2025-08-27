@@ -19,6 +19,7 @@ func _check_completion() -> void:
 
 func _on_proceed_button_pressed() -> void:
 	Globals.player_demographics = demographics
+	Globals.player_icon = Globals.player_affiliation.random_icon() # TODO: REMOVE!
 	get_tree().change_scene_to_packed(next_scene)
 
 func _on_affiliation_list_item_selected(index: int) -> void:

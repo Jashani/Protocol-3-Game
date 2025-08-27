@@ -18,7 +18,7 @@ func _ready() -> void:
 	set_typing()
 
 func set_affiliation(affiliation: Affiliation) -> void:
-	icon.texture = affiliation.icon
+	icon.texture = affiliation.random_icon()
 	affiliation_label.text = affiliation.text
 	affiliation_label.add_theme_color_override('font_color', affiliation.color)
 
@@ -28,6 +28,9 @@ func set_typing() -> void:
 
 func set_icon_left() -> void:
 	move_child(backround_panel, 1)
+
+func set_icon(new_icon: Texture) -> void:
+	icon.texture = new_icon
 
 func set_text(text: String) -> void:
 	_reset_font_color()

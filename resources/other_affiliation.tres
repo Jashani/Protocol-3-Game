@@ -1,10 +1,19 @@
-[gd_resource type="Resource" script_class="Affiliation" load_steps=3 format=3 uid="uid://51akueaa2oyr"]
+[gd_resource type="Resource" script_class="Affiliation" load_steps=11 format=3 uid="uid://51akueaa2oyr"]
 
 [ext_resource type="Script" uid="uid://coqsuxlw3ldmn" path="res://resources/affiliation.gd" id="1_0ad5r"]
-[ext_resource type="Texture2D" uid="uid://cf02uoouobxq" path="res://textures/yellow_icon.svg" id="1_x22cs"]
+[ext_resource type="Texture2D" uid="uid://d2pcdgo2i8biv" path="res://textures/yellow_icon_0.svg" id="1_ugu67"]
+[ext_resource type="Texture2D" uid="uid://dna6o4fq7v468" path="res://textures/yellow_icon_1.svg" id="2_nqtn6"]
+[ext_resource type="Texture2D" uid="uid://c3gx44bvb7kv0" path="res://textures/yellow_icon_2.svg" id="3_2y53s"]
+[ext_resource type="Texture2D" uid="uid://cxbyflq4vhvry" path="res://textures/yellow_icon_3.svg" id="4_chuow"]
+[ext_resource type="Texture2D" uid="uid://c44l5lmgjojl4" path="res://textures/yellow_icon_4.svg" id="5_lujpr"]
+[ext_resource type="Texture2D" uid="uid://q0v86hi76ldm" path="res://textures/yellow_icon_5.svg" id="6_ond0f"]
+[ext_resource type="Texture2D" uid="uid://db7cp6ymucrwj" path="res://textures/yellow_icon_6.svg" id="7_m58pa"]
+[ext_resource type="Texture2D" uid="uid://bgwa2av5l8uy7" path="res://textures/yellow_icon_7.svg" id="8_1ik3y"]
+[ext_resource type="Texture2D" uid="uid://b1ltj8g6afwun" path="res://textures/yellow_icon_8.svg" id="9_w8180"]
 
 [resource]
 script = ExtResource("1_0ad5r")
 text = "Other"
-icon = ExtResource("1_x22cs")
 color = Color(0.762679, 0.715844, 0.235848, 1)
+default_icon = ExtResource("1_ugu67")
+icons = Array[Texture]([ExtResource("1_ugu67"), ExtResource("2_nqtn6"), ExtResource("3_2y53s"), ExtResource("4_chuow"), ExtResource("5_lujpr"), ExtResource("6_ond0f"), ExtResource("7_m58pa"), ExtResource("8_1ik3y"), ExtResource("9_w8180")])

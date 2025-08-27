@@ -85,12 +85,13 @@ func _setup_scene() -> void:
 
 func _add_message(text: String, valence: String, affiliation: Affiliation,
 					is_player: bool = false) -> void:
-	var message = message_scene.instantiate()
+	var message: Message = message_scene.instantiate()
 	messages_container.add_child(message)
 	message.set_text(text)
 	_set_valence(valence, message)
 	message.set_affiliation(affiliation)
 	if is_player:
+		message.set_icon(Globals.player_icon)
 		message.set_icon_left()
 
 func _add_empty_message(affiliation: Affiliation) -> Message:
