@@ -25,13 +25,14 @@ const RELIABILITY_RATING_KEY = "reliability"
 ## Wait time after last response
 @export var wait_after_last_response: float = 5.0
 
-
 var round: Round
 var random = RandomNumberGenerator.new()
-
+var player_played: bool = false
 
 func _ready() -> void:
 	round = Scenarios.get_scenario()
+	assert(round.responses.size() >= player_position - 1,
+		"Not enough responses before the player's turn")
 	_run()
 
 func _run() -> void:
@@ -49,15 +50,25 @@ func _rate_headline(key: String) -> void:
 
 func _send_responses() -> void:
 	var responses: Array = round.responses
-	for index in responses.size():
-		var response = responses[index]
-		if index + 1 == player_position:
-			await get_tree().create_timer(wait_before_prompt).timeout
-			await _get_player_opinion()
-		var affiliation = Globals.str_to_affiliation(response["affiliation"])
-		var message = _add_empty_message(affiliation)
-		await _wait_random(min_wait_for_npc_response, max_wait_for_npc_response)
-		_update_message(message, response["text"], response["type"])
+	var message_position := 1
+	while responses.size() != 0 or not player_played:
+		if message_position == player_position:
+			await _prompt_player()
+		else:
+			var response = responses.pop_front()
+			await _post_npc_response(response)
+		message_position += 1
+
+func _prompt_player() -> void:
+	await get_tree().create_timer(wait_before_prompt).timeout
+	await _get_player_opinion()
+	player_played = true
+
+func _post_npc_response(response: Dictionary) -> void:
+	var affiliation = Globals.str_to_affiliation(response["affiliation"])
+	var message = _add_empty_message(affiliation)
+	await _wait_random(min_wait_for_npc_response, max_wait_for_npc_response)
+	_update_message(message, response["text"], response["type"])
 
 func _get_player_opinion() -> void:
 	await _rate_headline(SECOND_HEADLINE_RATING_KEY)
