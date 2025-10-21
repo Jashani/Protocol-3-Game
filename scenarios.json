@@ -4,7 +4,7 @@
 		"type": "left_crime",
 		"title": "Chicago Study Finds Police Disproportionately Use Force in Predominantly Black Neighborhoods",
 		"responses": [
-			{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" },
+			{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 		]
 	},
 	{
@@ -12,7 +12,7 @@
 		"type": "right_environment",
 		"title": "Wind Turbine Failures Increased 70% Over Two Years, Raising Questions About Long-Term Viability",
 		"responses": [
-			{ "type": "true", "text": "makes sense, it's a rushed technology", "affiliation": "republican" },
+			{ "type": "true", "text": "makes sense, it's a rushed technology", "affiliation": "republican" }
 		]
 	},
 	{
@@ -20,7 +20,7 @@
 		"type": "left_healthcare",
 		"title": "Migrant Workers in Texas Denied Medical Care Despite Paying into State Insurance Pool",
 		"responses": [
-			{ "type": "true", "text": "yea this happens", "affiliation": "other" },
+			{ "type": "true", "text": "yea this happens", "affiliation": "democrat" }
 		]
 	}
 ]

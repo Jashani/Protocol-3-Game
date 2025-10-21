@@ -54,6 +54,8 @@ text = "1/4"
 horizontal_alignment = 1
 script = ExtResource("3_yckg0")
 timer = NodePath("RandomTimer")
+max_players = 16
+max_player_wait_seconds = 3.0
 
 [node name="RandomTimer" type="Timer" parent="PlayerCountLabel"]
 one_shot = true

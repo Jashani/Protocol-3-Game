@@ -91,7 +91,9 @@ text = "What is your age?"
 [node name="AgeBox" type="SpinBox" parent="Panel/VBoxContainer"]
 layout_mode = 2
 theme = ExtResource("4_vlkgp")
+min_value = 18.0
 max_value = 150.0
+value = 18.0
 rounded = true
 
 [node name="EducationTitle" type="Label" parent="Panel/VBoxContainer"]
