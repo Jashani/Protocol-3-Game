@@ -9,6 +9,7 @@ signal complete
 @export var title: Label = null
 @export var left_label: Label = null
 @export var right_label: Label = null
+@export var value_label: Label = null
 @export var data_key: String
 
 
@@ -22,6 +23,11 @@ func set_left_label(text: String) -> void:
 
 func set_right_label(text: String) -> void:
 	right_label.text = text
+
+
+func set_value_label(value: float) -> void:
+	value = clamp(value, 0, 100)
+	value_label.text = "%0.1f" % value + "%"
 
 
 func set_data_key(key: String) -> void:
@@ -40,3 +46,7 @@ func _save_data() -> void:
 
 func _close_popup() -> void:
 	queue_free()
+
+
+func _on_slider_value_changed(value: float) -> void:
+	set_value_label(value)
