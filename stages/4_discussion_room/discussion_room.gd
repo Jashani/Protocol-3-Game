@@ -9,6 +9,7 @@ const RELIABILITY_RATING_KEY = "reliability"
 @export var opinion_popup_scene: PackedScene
 @export var next_scene: PackedScene
 
+@export var chat_container: PanelContainer
 @export var messages_container: Container
 @export var scroll_container: ScrollContainer
 @export var title_label: Label
@@ -118,12 +119,12 @@ func _update_message(message: Message, text: String, valence: String) -> void:
 func _create_slider_popup(key: String) -> SliderPopup:
 	var slider_popup: SliderPopup = slider_popup_scene.instantiate()
 	slider_popup.set_data_key(key)
-	add_child(slider_popup)
+	chat_container.add_child(slider_popup)
 	return slider_popup
 
 func _create_opinion_popup() -> OpinionPopup:
 	var opinion_popup: OpinionPopup = opinion_popup_scene.instantiate()
-	add_child(opinion_popup)
+	chat_container.add_child(opinion_popup)
 	return opinion_popup
 
 func _set_valence(valence: String, message: Message) -> void:
