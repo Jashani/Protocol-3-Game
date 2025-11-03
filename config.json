@@ -1,0 +1,34 @@
+{
+	"prompts": [
+		{
+			"type": "slider",
+			"stage": "before",
+			"column_name": "belief_prior",
+			"text": "How likely do you think the headline is to be true?",
+			"left_label": "Very unlikely",
+			"right_label": "Very likely",
+			"min_value": 0.0,
+			"max_value": 100.0
+		},
+		{
+			"type": "slider",
+			"stage": "after",
+			"column_name": "belief_posterior",
+			"text": "How likely do you think the headline is to be true?",
+			"left_label": "Very unlikely",
+			"right_label": "Very likely",
+			"min_value": 0.0,
+			"max_value": 100.0
+		},
+		{
+			"type": "slider",
+			"stage": "after",
+			"column_name": "reliability",
+			"text": "How reliable is the first player? I.e. how likely are they to make an accurate statement in response to the headline",
+			"left_label": "Very unreliable",
+			"right_label": "Very reliable",
+			"min_value": 0.0,
+			"max_value": 100.0
+		},
+	]
+}
