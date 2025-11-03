@@ -26,3 +26,15 @@ static func stage_from_str(string: String):
 	elif string == "after":
 		return Stage.AFTER
 	push_error("Failed to convert to stage: " + string)
+
+static func new_from_dict(dict: Dictionary) -> Prompt:
+	var prompt = new()
+	prompt.type = type_from_str(dict['type'])
+	prompt.stage = stage_from_str(dict['stage'])
+	prompt.column_name = dict['column_name']
+	prompt.text = dict['text']
+	prompt.left_label = dict['left_label']
+	prompt.right_label = dict['right_label']
+	prompt.min_value = dict['min_value']
+	prompt.max_value = dict['max_value']
+	return prompt

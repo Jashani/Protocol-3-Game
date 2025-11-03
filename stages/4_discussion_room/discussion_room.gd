@@ -49,23 +49,11 @@ func _run() -> void:
 func _get_prompts() -> void:
 	var prompts: Array = Config.config['prompts']
 	for prompt in prompts:
-		var prompt_resource = _prompt_dict_to_resource(prompt)
+		var prompt_resource = Prompt.new_from_dict(prompt)
 		if prompt_resource.stage == Prompt.Stage.BEFORE:
 			prompts_before.append(prompt_resource)
 		elif prompt_resource.stage == Prompt.Stage.AFTER:
 			prompts_after.append(prompt_resource)
-
-func _prompt_dict_to_resource(prompt: Dictionary) -> Prompt:
-	var _prompt = Prompt.new()
-	_prompt.type = Prompt.type_from_str(prompt['type'])
-	_prompt.stage = Prompt.stage_from_str(prompt['stage'])
-	_prompt.column_name = prompt['column_name']
-	_prompt.text = prompt['text']
-	_prompt.left_label = prompt['left_label']
-	_prompt.right_label = prompt['right_label']
-	_prompt.min_value = prompt['min_value']
-	_prompt.max_value = prompt['max_value']
-	return _prompt
 
 func _run_prompts(prompts: Array[Prompt]) -> void:
 	for prompt in prompts:
