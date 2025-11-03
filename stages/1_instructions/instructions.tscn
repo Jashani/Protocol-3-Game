@@ -1,14 +1,37 @@
-[gd_scene load_steps=4 format=3 uid="uid://d0cksblh5csic"]
+[gd_scene load_steps=7 format=3 uid="uid://d0cksblh5csic"]
 
 [ext_resource type="Script" uid="uid://g8d6jkjm1oa7" path="res://stages/1_instructions/instructions.gd" id="1_4q8y6"]
 [ext_resource type="PackedScene" uid="uid://bmfoyx83weo2d" path="res://stages/2_demographics/demographics.tscn" id="2_6p1th"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6p1th"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.011529654, 0.011529654, 0.07367058, 0.30588236)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqer3"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
 border_width_left = 20
+border_width_bottom = 20
 border_color = Color(0.8, 0.8, 0.8, 0)
 
-[node name="Instructions" type="Control"]
+[sub_resource type="DPITexture" id="DPITexture_6p1th"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#fff\" fill-opacity=\".75\" rx=\"2.333\"/><path fill=\"#1a1a1a\" d=\"m11.5 3.75-5.6 5.6-1.7-1.7-1.5 1.5 3.2 3.2 7.1-7.1z\"/></svg>
+"
+base_scale = 2.0
+
+[sub_resource type="DPITexture" id="DPITexture_hf2tj"]
+_source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\"><rect width=\"14\" height=\"14\" x=\"1\" y=\"1\" fill=\"#1a1a1a\" fill-opacity=\".5\" rx=\"2.333\"/></svg>
+"
+base_scale = 2.0
+
+[node name="Instructions" type="Control" node_paths=PackedStringArray("checkboxes", "submit_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +40,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4q8y6")
 next_scene = ExtResource("2_6p1th")
+checkboxes = [NodePath("PanelContainer/ScrollContainer/VBoxContainer/CheckBox1"), NodePath("PanelContainer/ScrollContainer/VBoxContainer/CheckBox2"), NodePath("PanelContainer/ScrollContainer/VBoxContainer/CheckBox3"), NodePath("PanelContainer/ScrollContainer/VBoxContainer/CheckBox4"), NodePath("PanelContainer/ScrollContainer/VBoxContainer/CheckBox5"), NodePath("PanelContainer/ScrollContainer/VBoxContainer/CheckBox6"), NodePath("PanelContainer/ScrollContainer/VBoxContainer/CheckBox7")]
+submit_button = NodePath("PanelContainer/ScrollContainer/VBoxContainer/ProceedButton")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
@@ -25,40 +50,136 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6p1th")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer"]
 layout_mode = 2
 
-[node name="Title" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="PanelContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 100
-text = " Introduction & Instructions"
+text = " Information Sheet"
 
-[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+[node name="Content" type="RichTextLabel" parent="PanelContainer/ScrollContainer/VBoxContainer"]
 custom_minimum_size = Vector2(20, 20)
 layout_mode = 2
-theme_override_font_sizes/font_size = 42
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
 theme_override_styles/normal = SubResource("StyleBoxFlat_xqer3")
-text = "Please consider participating in our research study about misinformation susceptibility online.
+bbcode_enabled = true
+text = " This study has been approved by the UCL Departmental Ethics Chair for Experimental Psychology. Project ID number: 0497.
 
-In this study, you will be asked to rate 8 news headlines as real or fake and answer a few optional questions about your background. Other players will also be taking the test at the same time and you will all be asked to share your thoughts about the headline in an online chat. It should take 2-3 minutes to complete (but may take longer). All data will be kept completely anonymous as per the privacy policy below. You must be 18 years or older to participate. 
+ We would like to invite you to participate in this research project being run by Greta Sanna (greta.sanna.23@ucl.ac.uk) under the supervision of Prof. David Lagnado (d.lagnado@ucl.ac.uk).
 
-If you have any queries or issues contact Greta Sanna (greta.sanna.23@ucl.ac.uk), Department of Experimental Psychology, UCL.
+ Participation in this study is voluntary. There are no consequences if you decide not to participate, or if you decide to withdraw part way through. In addition, if you decide after participating that you would not like your personal data to be used further, you can contact the researchers within 7 days after participating and the data will be deleted. After 7 days, it may be difficult or impossible to delete your personal data because it may have been shared in an anonymous or pseudoanonymous form with other researchers.
+
+ Personal data (such as your age and gender) will be collected on the basis of your consent. It will be anonymised or pseudoanonymised so that you cannot be identified as an individual on the basis of the information provided.
+
+ The data will be stored on encrypted and password protected devices and on the UCL IT network. This study will take approximately [b]10 minutes[/b] to complete and you will be paid [b]£1.50[/b] for your time. Before you decide whether you want to take part, it is important for you to read the following information carefully. This study examines how well individuals can discern between true and false information. You will be redirected to an online platform where you will be given a list of headlines. 
+[ul]
+ For each headline, you’ll be [b]asked to rate the extent to which you believe it is true. [/b]
+ [b]Other participants will [/b][u][b]simultaneously[/b][/u][b] be evaluating the same headline[/b] and sharing their thoughts. 
+ After each evaluation you will be asked to [b]share your own thoughts[/b] in the format of a media post. [b]This information will be shared with other participants. [/b]
+[/ul]
+
+[b][color=red]Only take part in this survey if you are a Republican or Democrat.[/color][/b]
+
+[b]Data Protection[/b]
+
+ If you are concerned about any aspect of this study, please contact the principal researcher. If your concerns are not satisfactorily resolved, you can contact the Chair of the UCL Research Ethics Committee at: ethics@ucl.ac.uk
+
+ The information that we collect in this study will be kept strictly confidential. You will not be able to be identified in any publications unless you explicitly agree to be identified. The results of the study may be published in an academic paper and may be used in subsequent research.
+
+ The data controller for this project is UCL. Any personal data will be processed for the reasons set out in this information sheet if you agree with the accompanying consent form. Any personal data will be processed for so long as it is required for the research project. We will anonymise or pseudonymise your personal data and minimise the processing of personal data where we can.
+
+ The UCL Data Protection Office provides oversight of UCL activities involving the processing of personal data. If you are concerned about how your personal data is being processed, please contact: data-protection@ucl.ac.uk If UCL is unable to address your concerns, please contact the Information Commissioner’s Office: [url]https://ico.org.uk/[/url]
+
+[b]Consent[/b]
+
+Participants will NOT be able to proceed unless they agree to all of these statements. Click the checkbox or the statement to agree.
+"
+fit_content = true
+autowrap_mode = 2
+
+[node name="CheckBox1" type="CheckBox" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_font_sizes/font_size = 32
+theme_override_icons/checked = SubResource("DPITexture_6p1th")
+theme_override_icons/unchecked = SubResource("DPITexture_hf2tj")
+text = "I have read the information above and understand I can email the researchers with any questions."
+autowrap_mode = 2
+
+[node name="CheckBox2" type="CheckBox" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_font_sizes/font_size = 32
+theme_override_icons/checked = SubResource("DPITexture_6p1th")
+theme_override_icons/unchecked = SubResource("DPITexture_hf2tj")
+text = "I understand that my personal information will be used for the purposes explained to me. I understand that according to data protection legislation, 'public task' will be the lawful basis for processing."
+autowrap_mode = 2
+
+[node name="CheckBox3" type="CheckBox" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_font_sizes/font_size = 32
+theme_override_icons/checked = SubResource("DPITexture_6p1th")
+theme_override_icons/unchecked = SubResource("DPITexture_hf2tj")
+text = "I understand that all my personal information will remain confidential and that my data gathered in the study will be stored anonymously and securely. It will not be possible to identify me in any publications."
+autowrap_mode = 2
+
+[node name="CheckBox4" type="CheckBox" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_font_sizes/font_size = 32
+theme_override_icons/checked = SubResource("DPITexture_6p1th")
+theme_override_icons/unchecked = SubResource("DPITexture_hf2tj")
+text = "I understand that my anonymised research data may be shared with, and used by, others for future research (no-one will be able to identify you when these data are shared)."
+autowrap_mode = 2
+
+[node name="CheckBox5" type="CheckBox" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_font_sizes/font_size = 32
+theme_override_icons/checked = SubResource("DPITexture_6p1th")
+theme_override_icons/unchecked = SubResource("DPITexture_hf2tj")
+text = "I understand that I am free to withdraw from the study without penalty if I so wish, simply by closing my browser.
 "
 autowrap_mode = 2
 
-[node name="ProceedButton" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 1672.0
-offset_top = 983.0
-offset_right = -35.0
-offset_bottom = -38.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_font_sizes/font_size = 24
+[node name="CheckBox6" type="CheckBox" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_font_sizes/font_size = 32
+theme_override_icons/checked = SubResource("DPITexture_6p1th")
+theme_override_icons/unchecked = SubResource("DPITexture_hf2tj")
+text = "I confirm that I am over 18 years of age."
+autowrap_mode = 2
+
+[node name="CheckBox7" type="CheckBox" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/h_separation = 16
+theme_override_font_sizes/font_size = 32
+theme_override_icons/checked = SubResource("DPITexture_6p1th")
+theme_override_icons/unchecked = SubResource("DPITexture_hf2tj")
+text = "I consent to take part in the study."
+autowrap_mode = 2
+
+[node name="ProceedButton" type="Button" parent="PanelContainer/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(360, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+disabled = true
 text = "Agree & proceed"
 
-[connection signal="pressed" from="ProceedButton" to="." method="_on_proceed_button_pressed"]
+[connection signal="pressed" from="PanelContainer/ScrollContainer/VBoxContainer/ProceedButton" to="." method="_on_proceed_button_pressed"]
