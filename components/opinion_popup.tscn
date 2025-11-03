@@ -55,7 +55,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_5fatv")
 
 [node name="SubmitButton" type="Button" parent="PopupContainer"]
 custom_minimum_size = Vector2(120, 50)
-layout_mode = 2
+layout_mode = 0
 anchor_left = 0.884
 anchor_top = 0.874
 anchor_right = 0.966
@@ -73,7 +73,7 @@ text = "Submit"
 
 [node name="Title" type="Label" parent="PopupContainer"]
 custom_minimum_size = Vector2(200, 50)
-layout_mode = 2
+layout_mode = 0
 anchor_left = 0.034
 anchor_top = 0.036
 anchor_right = 0.966

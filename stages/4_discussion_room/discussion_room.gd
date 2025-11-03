@@ -1,9 +1,5 @@
 extends Control
 
-const FIRST_HEADLINE_RATING_KEY = "belief_prior"
-const SECOND_HEADLINE_RATING_KEY = "belief_posterior"
-const RELIABILITY_RATING_KEY = "reliability"
-
 @export var message_scene: PackedScene
 @export var slider_popup_scene: PackedScene
 @export var opinion_popup_scene: PackedScene
@@ -29,61 +25,72 @@ const RELIABILITY_RATING_KEY = "reliability"
 var round: Round
 var random = RandomNumberGenerator.new()
 var player_played: bool = false
+var prompts_before: Array[Prompt]
+var prompts_after: Array[Prompt]
 
 func _ready() -> void:
 	round = Scenarios.get_scenario()
 	assert(round.responses.size() >= player_position - 1,
 		"Not enough responses before the player's turn")
+	_get_prompts()
 	_run()
 
 func _run() -> void:
 	Data.new_round(round)
 	_setup_scene()
-	await _rate_headline(FIRST_HEADLINE_RATING_KEY)
+	await _run_prompts(prompts_before)
 	await _send_responses()
+	await get_tree().create_timer(wait_before_prompt).timeout
+	await _run_prompts(prompts_after)
+	await _write_opinion()
 	await get_tree().create_timer(wait_after_last_response).timeout
 	_next()
 
-func _rate_headline(key: String) -> void:
-	var slider_popup: SliderPopup = _create_slider_popup(key)
-	slider_popup.set_title("How likely do you think the headline is to be true?")
-	await slider_popup.complete
+func _get_prompts() -> void:
+	var prompts: Array = Config.config['prompts']
+	for prompt in prompts:
+		var prompt_resource = _prompt_dict_to_resource(prompt)
+		if prompt_resource.stage == Prompt.Stage.BEFORE:
+			prompts_before.append(prompt_resource)
+		elif prompt_resource.stage == Prompt.Stage.AFTER:
+			prompts_after.append(prompt_resource)
+
+func _prompt_dict_to_resource(prompt: Dictionary) -> Prompt:
+	var _prompt = Prompt.new()
+	_prompt.type = Prompt.type_from_str(prompt['type'])
+	_prompt.stage = Prompt.stage_from_str(prompt['stage'])
+	_prompt.column_name = prompt['column_name']
+	_prompt.text = prompt['text']
+	_prompt.left_label = prompt['left_label']
+	_prompt.right_label = prompt['right_label']
+	_prompt.min_value = prompt['min_value']
+	_prompt.max_value = prompt['max_value']
+	return _prompt
+
+func _run_prompts(prompts: Array[Prompt]) -> void:
+	for prompt in prompts:
+		await _run_prompt(prompt)
+
+func _run_prompt(prompt: Prompt) -> void:
+	if prompt.type == Prompt.Type.SLIDER:
+		var slider_popup = _create_slider_popup_from_prompt(prompt)
+		await slider_popup.complete
+
+func _create_slider_popup_from_prompt(prompt: Prompt) -> SliderPopup:
+	var slider_popup: SliderPopup = slider_popup_scene.instantiate()
+	slider_popup.from_resource(prompt)
+	chat_container.add_child(slider_popup)
+	return slider_popup
 
 func _send_responses() -> void:
-	var responses: Array = round.responses
-	var message_position := 1
-	while responses.size() != 0 or not player_played:
-		if message_position == player_position:
-			await _prompt_player()
-		else:
-			var response = responses.pop_front()
-			await _post_npc_response(response)
-		message_position += 1
-
-func _prompt_player() -> void:
-	await get_tree().create_timer(wait_before_prompt).timeout
-	await _get_player_opinion()
-	player_played = true
+	var response: Dictionary = round.responses[0]
+	await _post_npc_response(response)
 
 func _post_npc_response(response: Dictionary) -> void:
 	var affiliation = Globals.str_to_affiliation(response["affiliation"])
 	var message = _add_empty_message(affiliation)
 	await _wait_random(min_wait_for_npc_response, max_wait_for_npc_response)
 	_update_message(message, response["text"], response["type"])
-
-func _get_player_opinion() -> void:
-	await _rate_headline(SECOND_HEADLINE_RATING_KEY)
-	await _rate_other_player_reliability()
-	await _write_opinion()
-
-func _rate_other_player_reliability() -> void:
-	var slider_popup: SliderPopup = _create_slider_popup(RELIABILITY_RATING_KEY)
-	slider_popup.set_title("""How reliable is the first player? \
-							I.e. how likely are they to make an accurate \
-							statement in response to the headline""")
-	slider_popup.set_left_label("Very unreliable")
-	slider_popup.set_right_label("Very reliable")
-	await slider_popup.complete
 
 func _write_opinion() -> void:
 	var opinion_popup: OpinionPopup = _create_opinion_popup()
@@ -115,12 +122,6 @@ func _add_empty_message(affiliation: Affiliation) -> Message:
 func _update_message(message: Message, text: String, valence: String) -> void:
 	message.set_text(text)
 	_set_valence(valence, message)
-
-func _create_slider_popup(key: String) -> SliderPopup:
-	var slider_popup: SliderPopup = slider_popup_scene.instantiate()
-	slider_popup.set_data_key(key)
-	chat_container.add_child(slider_popup)
-	return slider_popup
 
 func _create_opinion_popup() -> OpinionPopup:
 	var opinion_popup: OpinionPopup = opinion_popup_scene.instantiate()

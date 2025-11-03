@@ -27,6 +27,9 @@ title = NodePath("SliderContainer/VBoxContainer/Title")
 left_label = NodePath("SliderContainer/VBoxContainer/LabelsContainer/LeftLabel")
 right_label = NodePath("SliderContainer/VBoxContainer/LabelsContainer/RightLabel")
 value_label = NodePath("SliderContainer/VBoxContainer/ValueLabel")
+data_key = null
+min_value = null
+max_value = null
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
