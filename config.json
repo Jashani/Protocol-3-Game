@@ -8,7 +8,8 @@
 			"left_label": "Very unlikely",
 			"right_label": "Very likely",
 			"min_value": 0.0,
-			"max_value": 100.0
+			"max_value": 100.0,
+			"value": 50.0
 		},
 		{
 			"type": "slider",
@@ -18,7 +19,9 @@
 			"left_label": "Very unlikely",
 			"right_label": "Very likely",
 			"min_value": 0.0,
-			"max_value": 100.0
+			"max_value": 100.0,
+			"value": 50.0,
+			"use_previous": true
 		},
 		{
 			"type": "slider",
@@ -28,7 +31,8 @@
 			"left_label": "Very unreliable",
 			"right_label": "Very reliable",
 			"min_value": 0.0,
-			"max_value": 100.0
+			"max_value": 100.0,
+			"value": 50.0
 		},
 	]
 }

@@ -12,6 +12,8 @@ enum Type {SLIDER}
 @export var text: String
 @export var column_name: String
 @export var stage: Prompt.Type
+@export var value: float
+@export var use_previous: bool
 
 
 static func type_from_str(string: String):
@@ -37,4 +39,6 @@ static func new_from_dict(dict: Dictionary) -> Prompt:
 	prompt.right_label = dict['right_label']
 	prompt.min_value = dict['min_value']
 	prompt.max_value = dict['max_value']
+	prompt.value = dict.get('value', 0.0)
+	prompt.use_previous = dict.get('use_previous', false)
 	return prompt
