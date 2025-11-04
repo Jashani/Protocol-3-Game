@@ -27,6 +27,7 @@ var random = RandomNumberGenerator.new()
 var player_played: bool = false
 var prompts_before: Array[Prompt]
 var prompts_after: Array[Prompt]
+var last_slider_value: float
 
 func _ready() -> void:
 	round = Scenarios.get_scenario()
@@ -63,9 +64,12 @@ func _run_prompt(prompt: Prompt) -> void:
 	if prompt.type == Prompt.Type.SLIDER:
 		var slider_popup = _create_slider_popup_from_prompt(prompt)
 		await slider_popup.complete
+		last_slider_value = slider_popup.slider.value
 
 func _create_slider_popup_from_prompt(prompt: Prompt) -> SliderPopup:
 	var slider_popup: SliderPopup = slider_popup_scene.instantiate()
+	if prompt.use_previous:
+		prompt.value = last_slider_value
 	slider_popup.from_resource(prompt)
 	chat_container.add_child(slider_popup)
 	return slider_popup

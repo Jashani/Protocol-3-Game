@@ -21,11 +21,15 @@ func from_resource(prompt: Prompt) -> void:
 	set_right_label(prompt.right_label)
 	set_data_key(prompt.column_name)
 	set_limits(prompt.min_value, prompt.max_value)
+	slider.value = prompt.value
+	set_value_label(slider.value)
 
 
-func set_limits(min_value: float, max_value: float) -> void:
-	slider.min_value = min_value
-	slider.max_value = max_value
+func set_limits(min_limit: float, max_limit: float) -> void:
+	slider.min_value = min_limit
+	min_value = min_limit
+	slider.max_value = max_limit
+	max_value = max_limit
 
 
 func set_title(text: String) -> void:

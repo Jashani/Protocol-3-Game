@@ -13,6 +13,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ngur2")
 next_scene = ExtResource("2_3r841")
+min_wait_time = 0.0
+max_wait_time = 3.0
 
 [node name="WaitingLabel" type="Label" parent="." node_paths=PackedStringArray("timer")]
 layout_mode = 1
