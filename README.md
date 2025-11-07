@@ -29,6 +29,10 @@ The structure is as follows (simplified):
 ]
 ```
 
+This would produce the following headline and comment:
+
+<img width="2000" height="282" alt="New Project" src="https://github.com/user-attachments/assets/18983368-a5f7-48c7-9d3a-17f19360e653" />
+
 Key rundown:
 
 - `type`: the topic (crime, education, environment, immigration). Used for data analysis.
@@ -69,6 +73,10 @@ The structure is as follows:
     ]
 }
 ```
+
+This would produce the following comment:
+
+<img width="737" height="236" alt="image" src="https://github.com/user-attachments/assets/dace18d8-6c82-4a24-af01-f9ccad309159" />
 
 Key rundown:
 
