@@ -1,26 +1,100 @@
 [
 	{
-		"id": 1,
-		"type": "left_crime",
-		"title": "Chicago Study Finds Police Disproportionately Use Force in Predominantly Black Neighborhoods",
-		"responses": [
-			{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
+		"type": "crime",
+		"left": [
+			{
+				"id": 1,
+				"title": "Chicago Study Finds Police Disproportionately Use Force in Predominantly Black Neighborhoods",
+				"responses": [
+					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
+				]
+			},
+			{
+				"id": 2,
+				"title": "Surge in Gun Sales Linked to Spike in Domestic Violence Incidents, Says Leaked Briefing",
+				"responses": [
+					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
+				]
+			},
+			{
+				"id": 3,
+				"title": "Private Prison Company Reports Surge in Profits Following State Crackdown on Minor Offenses",
+				"responses": [
+					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
+				]
+			},
+		],
+		"right": [
+			{
+				"id": 4,
+				"title": "Violent Crime Surged in Cities That Reduced Police Budgets After 2020, Data Suggests",
+				"responses": [
+					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
+				]
+			},
+			{
+				"id": 5,
+				"title": "Report Finds Urban Homicide Spikes Highest Where Police Funding Was Reduced",
+				"responses": [
+					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
+				]
+			},
+			{
+				"id": 6,
+				"title": "Data Suggests Victims Who Carry Weapons Less Likely to Suffer Serious Harm",
+				"responses": [
+					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
+				]
+			},
 		]
 	},
 	{
-		"id": 2,
-		"type": "right_environment",
-		"title": "Wind Turbine Failures Increased 70% Over Two Years, Raising Questions About Long-Term Viability",
-		"responses": [
-			{ "type": "true", "text": "makes sense, it's a rushed technology", "affiliation": "republican" }
+		"type": "education",
+		"left": [
+			{
+				"id": 7,
+				"title": "Chicago Study Finds Police Disproportionately Use Force in Predominantly Black Neighborhoods",
+				"responses": [
+					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
+				]
+			},
+			{
+				"id": 8,
+				"title": "Surge in Gun Sales Linked to Spike in Domestic Violence Incidents, Says Leaked Briefing",
+				"responses": [
+					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
+				]
+			},
+			{
+				"id": 9,
+				"title": "Private Prison Company Reports Surge in Profits Following State Crackdown on Minor Offenses",
+				"responses": [
+					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
+				]
+			},
+		],
+		"right": [
+			{
+				"id": 10,
+				"title": "Violent Crime Surged in Cities That Reduced Police Budgets After 2020, Data Suggests",
+				"responses": [
+					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
+				]
+			},
+			{
+				"id": 11,
+				"title": "Report Finds Urban Homicide Spikes Highest Where Police Funding Was Reduced",
+				"responses": [
+					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
+				]
+			},
+			{
+				"id": 12,
+				"title": "Data Suggests Victims Who Carry Weapons Less Likely to Suffer Serious Harm",
+				"responses": [
+					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
+				]
+			},
 		]
 	},
-	{
-		"id": 3,
-		"type": "left_healthcare",
-		"title": "Migrant Workers in Texas Denied Medical Care Despite Paying into State Insurance Pool",
-		"responses": [
-			{ "type": "true", "text": "yea this happens", "affiliation": "democrat" }
-		]
-	}
 ]
