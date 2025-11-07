@@ -74,7 +74,7 @@ The structure is as follows:
 }
 ```
 
-This would produce the following comment:
+This would produce the following prompt:
 
 <img width="737" height="236" alt="image" src="https://github.com/user-attachments/assets/dace18d8-6c82-4a24-af01-f9ccad309159" />
 
