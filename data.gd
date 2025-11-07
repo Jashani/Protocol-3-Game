@@ -30,8 +30,8 @@ func new_round(round: Round) -> void:
 		"gender": Globals.player_demographics.gender,
 		"age": Globals.player_demographics.age,
 		"headline": round.type,
-		"player_affiliation": round.responses[0]["affiliation"],
-		"comment": round.responses[0]["type"] # TODO: Validate this is correct
+		"player_affiliation": round.response["affiliation"],
+		"comment": round.response["type"] # TODO: Validate this is correct
 	}
 	rounds.append(round_dict)
 

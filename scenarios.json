@@ -5,46 +5,34 @@
 			{
 				"id": 1,
 				"title": "Chicago Study Finds Police Disproportionately Use Force in Predominantly Black Neighborhoods",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 2,
 				"title": "Surge in Gun Sales Linked to Spike in Domestic Violence Incidents, Says Leaked Briefing",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 3,
 				"title": "Private Prison Company Reports Surge in Profits Following State Crackdown on Minor Offenses",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			}
 		],
 		"right": [
 			{
 				"id": 4,
 				"title": "Violent Crime Surged in Cities That Reduced Police Budgets After 2020, Data Suggests",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 5,
 				"title": "Report Finds Urban Homicide Spikes Highest Where Police Funding Was Reduced",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 6,
 				"title": "Data Suggests Victims Who Carry Weapons Less Likely to Suffer Serious Harm",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			}
 		]
 	},
@@ -54,46 +42,34 @@
 			{
 				"id": 7,
 				"title": "Study Finds Book Bans Linked to Decline in Student Reading Score",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 8,
 				"title": "Students in States Cutting LGBTQ+ Support Report Higher Depression Rates",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 9,
 				"title": "Bans on \"Woke\" Literature Correlate With Drop in Student Critical Thinking Skills",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			}
 		],
 		"right": [
 			{
 				"id": 10,
 				"title": "First-Grade Reading Scores Drop Sharply in Districts That Replaced Traditional Reading Lessons With DEI-Focused Curriculum",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 11,
 				"title": "Data Suggests School Districts With Gender-Inclusive Policies See Lower Science Proficiency",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 12,
 				"title": "Analysis Suggests Decline in SAT Scores Correlates With Rise of Equity-Based Grading Policies",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			}
 		]
 	},
@@ -103,46 +79,34 @@
 			{
 				"id": 13,
 				"title": "States Without Climate Plans See Record Flood Damage, Insurance Costs Soar",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 14,
 				"title": "Study Finds Communities Without Renewable Energy Projects Suffer Longer Blackouts",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 15,
 				"title": "Communities Blocking Climate Bills Experience Steeper Home Insurance Premium Hikes",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			}
 		],
 		"right": [
 			{
 				"id": 16,
 				"title": "Small Town Faces Blackouts After Coal Plant Closure Under Federal Climate Rules",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 17,
 				"title": "Farmers Say New Water Restrictions for Climate Goals Threaten Crops and Livelihoods",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 18,
 				"title": "California Town Sees Power Bills Spike After Switching to Renewable Energy",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			}
 		]
 	},
@@ -152,46 +116,34 @@
 			{
 				"id": 19,
 				"title": "Migrant Workers in Texas Denied Medical Care Despite Paying into State Insurance Pool",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 20,
 				"title": "New Investigation Finds Immigration Raids Target Legal Residents Due to Flawed Facial Recognition Software",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 21,
 				"title": "Public Transport Delays Increase Following Deportations of Bus Maintenance Workers",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			}
 		],
 		"right": [
 			{
 				"id": 22,
 				"title": "New Study Suggests Immigrant Households Receive Twice as Many Housing Subsidies as U.S. Citizens",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 23,
 				"title": "Housing Assistance Programs Prioritise Migrant Families Over Veterans in Allocation Process",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			},
 			{
 				"id": 24,
 				"title": "Public Housing Wait Times Skyrocket in Cities Experiencing Record Immigration Growth",
-				"responses": [
-					{ "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
-				]
+				"response": { "type": "true", "text": "Yea I don't doubt it.", "affiliation": "democrat" }
 			}
 		]
 	}

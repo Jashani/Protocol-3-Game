@@ -28,6 +28,9 @@ chat_container = NodePath("MarginContainer/VBoxContainer/ChatPanelContainer")
 messages_container = NodePath("MarginContainer/VBoxContainer/ChatPanelContainer/ScrollContainer/MessagesVBoxContainer")
 scroll_container = NodePath("MarginContainer/VBoxContainer/ChatPanelContainer/ScrollContainer")
 title_label = NodePath("MarginContainer/VBoxContainer/TitlePanelContainer/TitleLabel")
+max_wait_for_npc_response = 1.0
+wait_before_prompt = 1.0
+wait_after_last_response = 1.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

@@ -38,6 +38,6 @@ func _scenario_to_object(scenario: Dictionary, type: String) -> Round:
 	var _round := Round.new()
 	_round.id = scenario['id']
 	_round.title = scenario['title']
-	_round.responses = scenario['responses']
+	_round.response = scenario['response']
 	_round.type = type
 	return _round

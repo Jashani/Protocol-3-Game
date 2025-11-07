@@ -9,10 +9,7 @@ extends Control
 @export var messages_container: Container
 @export var scroll_container: ScrollContainer
 @export var title_label: Label
-@export var random_timer: Timer
 
-## The player's position in the response order
-@export var player_position: int = 2
 ## Max seconds for a non-player response
 @export var max_wait_for_npc_response: float = 3.0
 ## Min seconds for a non-player response
@@ -31,8 +28,6 @@ var last_slider_value: float
 
 func _ready() -> void:
 	round = Scenarios.get_scenario()
-	assert(round.responses.size() >= player_position - 1,
-		"Not enough responses before the player's turn")
 	_get_prompts()
 	_run()
 
@@ -40,7 +35,7 @@ func _run() -> void:
 	Data.new_round(round)
 	_setup_scene()
 	await _run_prompts(prompts_before)
-	await _send_responses()
+	await _send_response()
 	await get_tree().create_timer(wait_before_prompt).timeout
 	await _run_prompts(prompts_after)
 	await _write_opinion()
@@ -74,8 +69,8 @@ func _create_slider_popup_from_prompt(prompt: Prompt) -> SliderPopup:
 	chat_container.add_child(slider_popup)
 	return slider_popup
 
-func _send_responses() -> void:
-	var response: Dictionary = round.responses[0]
+func _send_response() -> void:
+	var response: Dictionary = round.response
 	await _post_npc_response(response)
 
 func _post_npc_response(response: Dictionary) -> void:
