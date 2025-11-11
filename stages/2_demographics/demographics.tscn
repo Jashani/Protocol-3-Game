@@ -78,10 +78,9 @@ theme_override_font_sizes/font_size = 24
 allow_search = false
 auto_width = true
 auto_height = true
-item_count = 3
+item_count = 2
 item_0/text = "Republican"
 item_1/text = "Democrat"
-item_2/text = "Other/Prefer not to say"
 
 [node name="AgeTitle" type="Label" parent="Panel/VBoxContainer"]
 layout_mode = 2

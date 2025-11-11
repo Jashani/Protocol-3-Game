@@ -2,7 +2,7 @@ class_name Affiliation
 
 extends Resource
 
-enum {REPUBLICAN, DEMOCRAT, OTHER}
+enum {REPUBLICAN, DEMOCRAT}
 
 @export var text: String
 @export var color: Color

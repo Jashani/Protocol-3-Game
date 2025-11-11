@@ -28,8 +28,6 @@ func _on_affiliation_list_item_selected(index: int) -> void:
 			Globals.player_affiliation = affiliations.republican
 		1:
 			Globals.player_affiliation = affiliations.democrat
-		2:
-			Globals.player_affiliation = affiliations.other
 		_:
 			push_error("Bad index when selecting player affiliation: " + str(index))
 	demographics.affiliation = Globals.player_affiliation.text

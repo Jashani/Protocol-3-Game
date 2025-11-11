@@ -1,13 +1,11 @@
-[gd_resource type="Resource" script_class="Affiliations" load_steps=5 format=3 uid="uid://kx6wmxdwxfhk"]
+[gd_resource type="Resource" script_class="Affiliations" load_steps=4 format=3 uid="uid://kx6wmxdwxfhk"]
 
 [ext_resource type="Script" uid="uid://ddnp6hq528fof" path="res://resources/affiliations.gd" id="1_5u6f7"]
 [ext_resource type="Resource" uid="uid://m7pea10tukgh" path="res://resources/dem_affiliation.tres" id="1_fkxg1"]
-[ext_resource type="Resource" uid="uid://51akueaa2oyr" path="res://resources/other_affiliation.tres" id="2_s5wtf"]
 [ext_resource type="Resource" uid="uid://54yn47ytgn77" path="res://resources/rep_affiliation.tres" id="3_fls26"]
 
 [resource]
 script = ExtResource("1_5u6f7")
 republican = ExtResource("3_fls26")
 democrat = ExtResource("1_fkxg1")
-other = ExtResource("2_s5wtf")
 metadata/_custom_type_script = "uid://ddnp6hq528fof"
