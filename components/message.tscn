@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://cut142oiv40j7"]
 
 [ext_resource type="Script" uid="uid://by8p56fp2qo6i" path="res://components/message.gd" id="1_06ydw"]
-[ext_resource type="Texture2D" uid="uid://b5pqo3b8cbjtd" path="res://textures/icon.svg" id="1_d26o2"]
+[ext_resource type="Texture2D" uid="uid://bf2cdghjq7st2" path="res://textures/blue_icon_0.svg" id="2_1m6sf"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06ydw"]
 content_margin_left = 40.0
@@ -104,14 +104,14 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_d72jl")
 [node name="ResponseLabel" type="Label" parent="PanelContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 36
-text = "This is my opinion!"
+text = "Yea I don't doubt it."
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
 
 [node name="CharacterTexture" type="TextureRect" parent="VBoxContainer"]
 layout_mode = 2
-texture = ExtResource("1_d26o2")
+texture = ExtResource("2_1m6sf")
 
 [node name="AffiliationLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
