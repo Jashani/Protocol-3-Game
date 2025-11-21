@@ -117,9 +117,9 @@ func _create_opinion_popup() -> OpinionPopup:
 
 func _set_valence(valence: String, message: Message) -> void:
 	match valence:
-		"true":
+		"support":
 			message.set_truthy()
-		"false":
+		"oppose":
 			message.set_falsey()
 		"unsure":
 			message.set_neutral()
