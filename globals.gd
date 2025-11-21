@@ -10,9 +10,9 @@ var affiliations: Affiliations = preload("res://resources/affiliations.tres")
 
 func str_to_affiliation(string: String) -> Affiliation:
 	match string.to_lower():
-		"republican":
+		"right":
 			return affiliations.republican
-		"democrat":
+		"left":
 			return affiliations.democrat
 		_:
 			push_error("Failed to parse str to affiliation: " + string)

@@ -53,7 +53,7 @@ func _enable_text() -> void:
 
 func _on_support_button_pressed() -> void:
 	_enable_text()
-	selected_opinion = "true" # Opinion.SUPPORT
+	selected_opinion = "support" # Opinion.SUPPORT
 
 
 func _on_unsure_button_pressed() -> void:
@@ -63,7 +63,7 @@ func _on_unsure_button_pressed() -> void:
 
 func _on_oppose_button_pressed() -> void:
 	_enable_text()
-	selected_opinion = "false" # Opinion.OPPOSE
+	selected_opinion = "oppose" # Opinion.OPPOSE
 
 
 func _on_response_text_edit_text_changed() -> void:
