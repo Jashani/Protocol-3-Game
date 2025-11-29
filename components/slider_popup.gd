@@ -13,6 +13,7 @@ signal complete
 @export var data_key: String
 @export var min_value: float = 0.0
 @export var max_value: float = 100.0
+@export var submit_button: Button = null
 
 
 func from_resource(prompt: Prompt) -> void:
@@ -69,3 +70,7 @@ func _close_popup() -> void:
 
 func _on_slider_value_changed(value: float) -> void:
 	set_value_label(value)
+
+
+func _on_slider_drag_started() -> void:
+	submit_button.disabled = false
