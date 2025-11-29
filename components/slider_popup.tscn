@@ -14,7 +14,7 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.140495, 0.159856, 0.17498, 1)
 
-[node name="SliderPopup" type="Control" node_paths=PackedStringArray("slider", "title", "left_label", "right_label", "value_label")]
+[node name="SliderPopup" type="Control" node_paths=PackedStringArray("slider", "title", "left_label", "right_label", "value_label", "submit_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -27,9 +27,7 @@ title = NodePath("SliderContainer/VBoxContainer/Title")
 left_label = NodePath("SliderContainer/VBoxContainer/LabelsContainer/LeftLabel")
 right_label = NodePath("SliderContainer/VBoxContainer/LabelsContainer/RightLabel")
 value_label = NodePath("SliderContainer/VBoxContainer/ValueLabel")
-data_key = null
-min_value = null
-max_value = null
+submit_button = NodePath("SliderContainer/SubmitButton")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -106,7 +104,23 @@ layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 24
+disabled = true
 text = "Submit"
 
+[node name="SubmitTip" type="Label" parent="SliderContainer/SubmitButton"]
+layout_mode = 0
+offset_left = -420.0
+offset_top = 3.0
+offset_right = -15.0
+offset_bottom = 47.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 0.5019608)
+theme_override_font_sizes/font_size = 24
+text = "Interact with slider to submit"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[connection signal="drag_ended" from="SliderContainer/VBoxContainer/HSlider" to="." method="_on_slider_drag_ended"]
+[connection signal="drag_started" from="SliderContainer/VBoxContainer/HSlider" to="." method="_on_slider_drag_started"]
 [connection signal="value_changed" from="SliderContainer/VBoxContainer/HSlider" to="." method="_on_slider_value_changed"]
 [connection signal="pressed" from="SliderContainer/SubmitButton" to="." method="_on_submit_button_pressed"]
