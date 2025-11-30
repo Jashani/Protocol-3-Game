@@ -64,45 +64,48 @@ theme_override_constants/separation = 140
 [node name="ExtremeLeftLabel" type="Label" parent="SliderContainer/VBoxContainer/LabelsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 30
-text = "Extreme
-Left"
+text = "Left"
 horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="LeftCentreLabel" type="Label" parent="SliderContainer/VBoxContainer/LabelsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 30
-text = "Left-centre"
+text = "Left-lean"
 horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="LeastBiasedLabel" type="Label" parent="SliderContainer/VBoxContainer/LabelsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 30
 text = "Least
 biased"
 horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="RightCentreLabel" type="Label" parent="SliderContainer/VBoxContainer/LabelsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 30
-text = "Right-centre"
+text = "Right-lean"
 horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="ExtremeRightLabel" type="Label" parent="SliderContainer/VBoxContainer/LabelsContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
-size_flags_vertical = 0
+size_flags_vertical = 1
 theme_override_font_sizes/font_size = 30
-text = "Extreme
-Right"
+text = "Right"
 horizontal_alignment = 1
+vertical_alignment = 2
 
 [node name="HSlider" type="HSlider" parent="SliderContainer/VBoxContainer"]
 layout_mode = 2
