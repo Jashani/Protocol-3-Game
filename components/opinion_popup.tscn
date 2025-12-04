@@ -22,8 +22,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3qi6b")
-title = NodePath("PopupContainer/Title")
-input = NodePath("PopupContainer/ResponseTextEdit")
+title = NodePath("PopupContainer/VBoxContainer/Title")
+input = NodePath("PopupContainer/VBoxContainer/ResponseTextEdit")
 submit_button = NodePath("PopupContainer/SubmitButton")
 
 [node name="Background" type="ColorRect" parent="."]
@@ -37,17 +37,17 @@ size_flags_horizontal = 4
 color = Color(0, 0, 0, 0.407843)
 
 [node name="PopupContainer" type="Panel" parent="."]
-custom_minimum_size = Vector2(200, 100)
+custom_minimum_size = Vector2(200, 450)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.118
 anchor_top = 0.243
 anchor_right = 0.882
 anchor_bottom = 0.757
-offset_left = 0.439987
-offset_top = -0.440002
-offset_right = -0.440063
-offset_bottom = 0.439941
+offset_left = 0.43998718
+offset_top = 27.559998
+offset_right = -0.44006348
+offset_bottom = -77.56006
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -55,93 +55,79 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_5fatv")
 
 [node name="SubmitButton" type="Button" parent="PopupContainer"]
 custom_minimum_size = Vector2(120, 50)
-layout_mode = 0
-anchor_left = 0.884
-anchor_top = 0.874
-anchor_right = 0.966
-anchor_bottom = 0.964
-offset_left = 0.0559082
-offset_top = 0.0559998
-offset_right = -0.156006
-offset_bottom = 0.0159912
-grow_horizontal = 2
-grow_vertical = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.89100003
+anchor_top = 0.84900004
+anchor_right = 0.97300005
+anchor_bottom = 0.96000004
+offset_left = -0.20605469
+offset_top = -0.05001831
+offset_right = -0.41796875
+offset_bottom = -3.0517578e-05
 size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 24
 text = "Submit"
 
-[node name="Title" type="Label" parent="PopupContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="PopupContainer"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -694.0
+offset_top = -205.0
+offset_right = 694.0
+offset_bottom = 147.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 32
+
+[node name="Title" type="Label" parent="PopupContainer/VBoxContainer"]
 custom_minimum_size = Vector2(200, 50)
-layout_mode = 0
-anchor_left = 0.034
-anchor_top = 0.036
-anchor_right = 0.966
-anchor_bottom = 0.239
-offset_left = 0.155998
-offset_top = -0.0160007
-offset_right = -0.156006
-offset_bottom = 0.115997
+layout_mode = 2
 size_flags_vertical = 2
 theme_override_font_sizes/font_size = 40
 text = "It's your turn to share your thoughts. How do you feel about the statement?"
 horizontal_alignment = 1
 autowrap_mode = 2
 
-[node name="HBoxContainer" type="HBoxContainer" parent="PopupContainer"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.214
-anchor_top = 0.318
-anchor_right = 0.786
-anchor_bottom = 0.5
-offset_left = -0.72403
-offset_top = 0.191986
-offset_right = 0.723999
-offset_bottom = -1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HBoxContainer" type="HBoxContainer" parent="PopupContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
+layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/separation = 20
 
-[node name="SupportButton" type="Button" parent="PopupContainer/HBoxContainer"]
+[node name="SupportButton" type="Button" parent="PopupContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 42
 text = "Support"
 
-[node name="UnsureButton" type="Button" parent="PopupContainer/HBoxContainer"]
+[node name="UnsureButton" type="Button" parent="PopupContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 42
 text = "Unsure"
 
-[node name="OpposeButton" type="Button" parent="PopupContainer/HBoxContainer"]
+[node name="OpposeButton" type="Button" parent="PopupContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 42
 text = "Oppose"
 
-[node name="ResponseTextEdit" type="TextEdit" parent="PopupContainer"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.032
-anchor_top = 0.543
-anchor_right = 0.968
-anchor_bottom = 0.847
-offset_left = 0.0879974
-offset_top = 0.09198
-offset_right = -0.0881348
-offset_bottom = 0.0679626
-grow_horizontal = 2
-grow_vertical = 2
+[node name="ResponseTextEdit" type="TextEdit" parent="PopupContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 24
 placeholder_text = "Enter your thoughts here..."
 
 [connection signal="pressed" from="PopupContainer/SubmitButton" to="." method="_on_submit_button_pressed"]
-[connection signal="pressed" from="PopupContainer/HBoxContainer/SupportButton" to="." method="_on_support_button_pressed"]
-[connection signal="pressed" from="PopupContainer/HBoxContainer/UnsureButton" to="." method="_on_unsure_button_pressed"]
-[connection signal="pressed" from="PopupContainer/HBoxContainer/OpposeButton" to="." method="_on_oppose_button_pressed"]
-[connection signal="text_changed" from="PopupContainer/ResponseTextEdit" to="." method="_on_response_text_edit_text_changed"]
+[connection signal="pressed" from="PopupContainer/VBoxContainer/HBoxContainer/SupportButton" to="." method="_on_support_button_pressed"]
+[connection signal="pressed" from="PopupContainer/VBoxContainer/HBoxContainer/UnsureButton" to="." method="_on_unsure_button_pressed"]
+[connection signal="pressed" from="PopupContainer/VBoxContainer/HBoxContainer/OpposeButton" to="." method="_on_oppose_button_pressed"]
+[connection signal="text_changed" from="PopupContainer/VBoxContainer/ResponseTextEdit" to="." method="_on_response_text_edit_text_changed"]

@@ -10,6 +10,7 @@ extends Control
 @export var scroll_container: ScrollContainer
 @export var title_label: Label
 @export var bias_slider: BiasSlider
+@export var next_button: Button
 
 ## Max seconds for a non-player response
 @export var max_wait_for_npc_response: float = 3.0
@@ -19,6 +20,11 @@ extends Control
 @export var wait_before_prompt: float = 3.0
 ## Wait time after last response
 @export var wait_after_last_response: float = 5.0
+
+@export var min_bias_meter_range: float = 40.0
+@export var max_bias_meter_range: float = 60.0
+
+@export var use_bias_meter: bool = true
 
 var round: Round
 var random = RandomNumberGenerator.new()
@@ -30,11 +36,9 @@ var last_slider_value: float
 func _ready() -> void:
 	round = Scenarios.get_scenario()
 	_get_prompts()
-	_run()
+	_setup_scene()
 
 func _run() -> void:
-	Data.new_round(round)
-	_setup_scene()
 	await _run_prompts(prompts_before)
 	await _send_response()
 	await get_tree().create_timer(wait_before_prompt).timeout
@@ -88,7 +92,16 @@ func _write_opinion() -> void:
 	_add_message(text, opinion, Globals.player_affiliation, true)
 
 func _setup_scene() -> void:
+	Data.new_round(round)
+	bias_slider.visible = false
 	title_label.text = round.title
+	_set_bias()
+
+func _set_bias() -> void:
+	var bias = random.randf_range(min_bias_meter_range, max_bias_meter_range)
+	if round.leaning == "left":
+		bias *= -1
+	bias_slider.set_value(bias)
 
 func _add_message(text: String, valence: String, affiliation: Affiliation,
 					is_player: bool = false) -> void:
@@ -136,3 +149,9 @@ func _next() -> void:
 		get_tree().change_scene_to_packed(next_scene)
 	else:
 		get_tree().reload_current_scene()
+
+func _on_next_button_pressed() -> void:
+	next_button.visible = false
+	if use_bias_meter:
+		bias_slider.visible = true
+	_run()

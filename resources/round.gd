@@ -6,3 +6,4 @@ extends Resource
 @export var title: String
 @export var response: Dictionary
 @export var type: String
+@export var leaning: String

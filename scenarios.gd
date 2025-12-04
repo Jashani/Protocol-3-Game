@@ -60,12 +60,14 @@ func _build_random_scenario(_scenarios: Array, topic: String,
 							leaning: String) -> Round:
 	var random_scenario = _scenarios.pick_random()
 	var type = leaning + "_" + topic
-	var _round = _scenario_to_object(random_scenario, type)
+	var _round = _scenario_to_object(random_scenario, type, leaning)
 	return _round
 
-func _scenario_to_object(scenario: Dictionary, type: String) -> Round:
+func _scenario_to_object(scenario: Dictionary, type: String,
+						 leaning: String) -> Round:
 	var _round := Round.new()
 	_round.id = scenario['id']
 	_round.title = scenario['title']
 	_round.type = type
+	_round.leaning = leaning
 	return _round
