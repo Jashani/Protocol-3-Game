@@ -9,7 +9,7 @@ const FILE_PATH: String = "res://test.csv" # TODO: Determine
 const HEADERS: PackedStringArray = ["participant_id",
 	"participant_affiliation", "age", "education",
 	"gender", "round", "headline", "player_affiliation",
-	"comment", "belief_prior", "belief_posterior",
+	"comment", "comment_leaning", "belief_prior", "belief_posterior",
 	"reliability", "post_valence", "post_content"]
 
 var rounds: Array[Dictionary]
@@ -31,7 +31,8 @@ func new_round(round: Round) -> void:
 		"age": Globals.player_demographics.age,
 		"headline": round.type,
 		"player_affiliation": round.response["affiliation"],
-		"comment": round.response["type"] # TODO: Validate this is correct
+		"comment": round.response["text"],
+		"comment_leaning": round.response["type"]
 	}
 	rounds.append(round_dict)
 
