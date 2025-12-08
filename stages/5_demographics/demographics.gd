@@ -8,30 +8,24 @@ extends Control
 
 @export var affiliations: Affiliations
 
-var demographics := Demographics.new()
+var demographics := Globals.player_demographics
 
 
 func _check_completion() -> void:
-	var fields := [demographics.affiliation, demographics.education,
-				   demographics.gender, demographics.age]
+	var fields := [demographics.education, demographics.gender,
+				   demographics.age]
 	if not fields.has("") and not fields.has(0):
 		proceed_button.disabled = false
 
 func _on_proceed_button_pressed() -> void:
-	Globals.player_demographics = demographics
-	Globals.player_icon = Globals.player_affiliation.random_icon() # TODO: REMOVE!
+	_save_demographics()
 	get_tree().change_scene_to_packed(next_scene)
 
-func _on_affiliation_list_item_selected(index: int) -> void:
-	match index:
-		0:
-			Globals.player_affiliation = affiliations.republican
-		1:
-			Globals.player_affiliation = affiliations.democrat
-		_:
-			push_error("Bad index when selecting player affiliation: " + str(index))
-	demographics.affiliation = Globals.player_affiliation.text
-	_check_completion()
+ # I don't like how this is implemented but whatever
+func _save_demographics() -> void:
+	Data.save_for_all_rounds("age", demographics.age)
+	Data.save_for_all_rounds("gender", demographics.gender)
+	Data.save_for_all_rounds("education", demographics.education)
 
 func _on_age_box_value_changed(value: float) -> void:
 	demographics.age = int(value)

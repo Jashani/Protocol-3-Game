@@ -5,7 +5,7 @@
 [ext_resource type="Script" uid="uid://bh2343pjo6uqy" path="res://components/scroll_container.gd" id="3_wye38"]
 [ext_resource type="PackedScene" uid="uid://dif1titn6wnkc" path="res://components/slider_popup.tscn" id="3_xohqb"]
 [ext_resource type="PackedScene" uid="uid://bankhao6tie43" path="res://components/opinion_popup.tscn" id="4_26afn"]
-[ext_resource type="PackedScene" uid="uid://djoe7pkv785y" path="res://stages/5_end/end.tscn" id="5_ugsu6"]
+[ext_resource type="PackedScene" uid="uid://cc10k3yhbb32s" path="res://stages/5_demographics/demographics.tscn" id="5_ugsu6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kfc6"]
 bg_color = Color(0.210764, 0.253468, 0.315617, 1)

@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://d0cksblh5csic"]
 
 [ext_resource type="Script" uid="uid://g8d6jkjm1oa7" path="res://stages/1_instructions/instructions.gd" id="1_4q8y6"]
-[ext_resource type="PackedScene" uid="uid://bmfoyx83weo2d" path="res://stages/2_demographics/demographics.tscn" id="2_6p1th"]
+[ext_resource type="PackedScene" uid="uid://bmfoyx83weo2d" path="res://stages/2_leaning/leaning.tscn" id="2_6p1th"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6p1th"]
 content_margin_left = 0.0

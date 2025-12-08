@@ -8,7 +8,7 @@ extends Node
 const FILE_PATH: String = "res://test.csv" # TODO: Determine
 const HEADERS: PackedStringArray = ["participant_id",
 	"participant_affiliation", "age", "education",
-	"gender", "round", "headline", "player_affiliation",
+	"gender", "scenario_id", "headline", "npc_affiliation",
 	"comment", "comment_leaning", "belief_prior", "belief_posterior",
 	"reliability", "post_valence", "post_content"]
 
@@ -23,14 +23,14 @@ func check_connectivity():
 
 func new_round(round: Round) -> void:
 	var round_dict = {
-		"round": round.id,
+		"scenario_id": round.id,
 		"participant_id": participant_id,
 		"participant_affiliation": Globals.player_demographics.affiliation,
 		"education": Globals.player_demographics.education,
 		"gender": Globals.player_demographics.gender,
 		"age": Globals.player_demographics.age,
 		"headline": round.type,
-		"player_affiliation": round.response["affiliation"],
+		"npc_affiliation": round.response["affiliation"],
 		"comment": round.response["text"],
 		"comment_leaning": round.response["type"]
 	}
@@ -39,6 +39,10 @@ func new_round(round: Round) -> void:
 func save_value(key: String, value):
 	assert(rounds.size() > 0, "Trying to save value, but no rounds!")
 	rounds[-1][key] = value
+
+func save_for_all_rounds(key: String, value):
+	for _round in rounds:
+		_round[key] = value
 
 func save_file():
 	var file: FileAccess = FileAccess.open(FILE_PATH, FileAccess.WRITE)

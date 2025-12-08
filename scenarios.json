@@ -137,12 +137,6 @@
 	],
 	"arrangements": [
 		{ "headline": "left", "comment": "left", "stance": "support" },
-		{ "headline": "left", "comment": "left", "stance": "oppose" },
-		{ "headline": "left", "comment": "right", "stance": "support" },
-		{ "headline": "left", "comment": "right", "stance": "oppose" },
-		{ "headline": "right", "comment": "left", "stance": "support" },
-		{ "headline": "right", "comment": "left", "stance": "oppose" },
-		{ "headline": "right", "comment": "right", "stance": "support" },
-		{ "headline": "right", "comment": "right", "stance": "oppose" }
+		{ "headline": "left", "comment": "left", "stance": "oppose" }
 	]
 }
