@@ -20,6 +20,8 @@ extends Control
 @export var wait_before_prompt: float = 3.0
 ## Wait time after last response
 @export var wait_after_last_response: float = 5.0
+## Wait time after clicking Next
+@export var wait_after_next: float = 2.0
 
 @export var min_bias_meter_range: float = 40.0
 @export var max_bias_meter_range: float = 60.0
@@ -154,4 +156,5 @@ func _on_next_button_pressed() -> void:
 	next_button.visible = false
 	if use_bias_meter:
 		bias_slider.visible = true
+		await get_tree().create_timer(wait_after_next).timeout
 	_run()
