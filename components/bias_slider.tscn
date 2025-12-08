@@ -1,8 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://f4rrmtkxp7jr"]
+[gd_scene load_steps=7 format=3 uid="uid://rric7osp10qg"]
 
-[ext_resource type="Script" uid="uid://c4kujeu0gya00" path="res://components/bias_slider.gd" id="1_3so0t"]
+[ext_resource type="Script" path="res://components/bias_slider.gd" id="1_3so0t"]
 [ext_resource type="Texture2D" uid="uid://g2sftioeedmo" path="res://textures/political_gradient.png" id="1_24xax"]
-[ext_resource type="Texture2D" uid="uid://bloswokwa45d3" path="res://textures/grabber_texture.tres" id="2_tjvuk"]
+[ext_resource type="Texture2D" path="res://textures/grabber_texture.tres" id="2_tjvuk"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_htgtg"]
 content_margin_left = 50.0
