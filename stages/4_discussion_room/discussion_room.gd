@@ -26,7 +26,7 @@ extends Control
 @export var min_bias_meter_range: float = 40.0
 @export var max_bias_meter_range: float = 60.0
 
-@export var use_bias_meter: bool = true
+@export var use_bias_meter: bool
 
 var round: Round
 var random = RandomNumberGenerator.new()
@@ -36,6 +36,7 @@ var prompts_after: Array[Prompt]
 var last_slider_value: float
 
 func _ready() -> void:
+	use_bias_meter = not Config.config['control']
 	round = Scenarios.get_scenario()
 	_get_prompts()
 	_setup_scene()
