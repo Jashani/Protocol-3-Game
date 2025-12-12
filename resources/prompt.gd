@@ -7,8 +7,7 @@ enum Type {SLIDER}
 @export var type: Prompt.Type
 @export var min_value: float
 @export var max_value: float
-@export var left_label: String
-@export var right_label: String
+@export var labels: Array[String]
 @export var text: String
 @export var column_name: String
 @export var stage: Prompt.Type
@@ -35,8 +34,7 @@ static func new_from_dict(dict: Dictionary) -> Prompt:
 	prompt.stage = stage_from_str(dict['stage'])
 	prompt.column_name = dict['column_name']
 	prompt.text = dict['text']
-	prompt.left_label = dict['left_label']
-	prompt.right_label = dict['right_label']
+	prompt.labels.assign(dict['labels'])
 	prompt.min_value = dict['min_value']
 	prompt.max_value = dict['max_value']
 	prompt.value = dict.get('value', 0.0)
