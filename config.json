@@ -1,13 +1,12 @@
 {
+	"control": false,
 	"prompts": [
 		{
 			"type": "slider",
 			"stage": "before",
 			"column_name": "belief_prior",
-			"text": "How likely do you think the headline is to be true?",
+			"text": "Based on all available information, how likely do you think the headline is to be true?",
 			"labels": ["Very unlikely", "Very likely"],
-			"left_label": "Left",
-			"right_label": "Right",
 			"min_value": 0.0,
 			"max_value": 100.0,
 			"value": 50.0
@@ -16,10 +15,8 @@
 			"type": "slider",
 			"stage": "after",
 			"column_name": "belief_posterior",
-			"text": "Once again, how likely do you think the headline is to be true?",
+			"text": "Based on all available information, how likely do you think the headline is to be true?",
 			"labels": ["Very unlikely", "Very likely"],
-			"left_label": "Very unlikely",
-			"right_label": "Very likely",
 			"min_value": 0.0,
 			"max_value": 100.0,
 			"value": 50.0,
@@ -29,10 +26,8 @@
 			"type": "slider",
 			"stage": "after",
 			"column_name": "reliability",
-			"text": "How knowledgeable do you think the first participant is about the topic of the headline?",
+			"text": "Based on all available information, how knowledgeable do you think the first participant is about the topic of the headline?",
 			"labels": ["Not at all knowledgeable", "Extremely knowledgeable"],
-			"left_label": "Not at all knowledgeable",
-			"right_label": "Extremely knowledgeable",
 			"min_value": 0.0,
 			"max_value": 100.0,
 			"value": 50.0
@@ -40,11 +35,19 @@
 		{
 			"type": "slider",
 			"stage": "after",
-			"column_name": "reliability",
-			"text": "Based on this statement, how strongly do you think the first participant is biased toward one political side? A stronger bias means they are more likely to align with party values over accuracy/truth.",
+			"column_name": "attention_check",
+			"text": "Based on all available information, set the slider to -100 if the first participant's comment supports the headline, and to 100 if it opposes the headline.",
 			"labels": ["Extreme left bias", "No bias", "Extreme right bias"],
-			"left_label": "X",
-			"right_label": "Y",
+			"min_value": -100.0,
+			"max_value": 100.0,
+			"value": 0.0
+		},
+		{
+			"type": "slider",
+			"stage": "after",
+			"column_name": "commenter_bias_rating",
+			"text": "Based on all available information, how strongly do you think the first participant is biased toward one political side? A stronger bias means they are more likely to align with party values over accuracy/truth.",
+			"labels": ["Extreme left bias", "No bias", "Extreme right bias"],
 			"min_value": -100.0,
 			"max_value": 100.0,
 			"value": 0.0
