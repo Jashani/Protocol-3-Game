@@ -6,20 +6,28 @@
 extends Node
 
 const FILE_PATH: String = "res://test.csv" # TODO: Determine
-const HEADERS: PackedStringArray = ["participant_id",
+# Headers without added headers from config
+const BUILTIN_HEADERS: PackedStringArray = ["participant_id",
 	"participant_affiliation", "age", "education",
 	"gender", "scenario_id", "headline", "npc_affiliation",
-	"comment", "comment_leaning", "belief_prior", "belief_posterior",
-	"reliability", "post_valence", "post_content"]
+	"comment", "comment_leaning", "post_valence", "post_content"]
 
 var rounds: Array[Dictionary]
 var participant_id: int = 0 # TODO: set properly
+var headers: PackedStringArray = []
 
 func _ready() -> void:
 	check_connectivity()
+	call_deferred("_set_headers") # Make sure config has time to load
 
 func check_connectivity():
 	pass
+
+func _set_headers() -> void:
+	headers += BUILTIN_HEADERS
+	var prompts = Config.config['prompts']
+	for prompt in prompts:
+		headers.append(prompt['column_name'])
 
 func new_round(round: Round) -> void:
 	var round_dict = {
@@ -49,11 +57,11 @@ func save_file():
 	if file == null:
 		push_error("Failed opening file: " + str(FileAccess.get_open_error()))
 
-	file.store_csv_line(HEADERS)
-	
+	file.store_csv_line(headers)
+
 	for round in rounds:
 		var row: PackedStringArray = []
-		for header in HEADERS:
+		for header in headers:
 			var value = str(round.get(header, ""))
 			row.append(value)
 		
