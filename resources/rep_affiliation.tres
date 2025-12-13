@@ -1,19 +1,18 @@
 [gd_resource type="Resource" script_class="Affiliation" load_steps=11 format=3 uid="uid://54yn47ytgn77"]
 
-[ext_resource type="Texture2D" uid="uid://bopbjxakecut3" path="res://textures/red_icon_0.svg" id="1_4oxoi"]
+[ext_resource type="Texture2D" uid="uid://clnue25o6mbps" path="res://textures/red_icon_0.png" id="1_4oxoi"]
 [ext_resource type="Script" uid="uid://coqsuxlw3ldmn" path="res://resources/affiliation.gd" id="2_7gnny"]
-[ext_resource type="Texture2D" uid="uid://d4lkubrlijgjo" path="res://textures/red_icon_1.svg" id="2_klwv0"]
-[ext_resource type="Texture2D" uid="uid://daqn2yt3vfm7i" path="res://textures/red_icon_2.svg" id="3_10q3u"]
-[ext_resource type="Texture2D" uid="uid://omtv826gn8oj" path="res://textures/red_icon_3.svg" id="4_n3sfd"]
-[ext_resource type="Texture2D" uid="uid://x037whh4wfhg" path="res://textures/red_icon_4.svg" id="5_p7o6t"]
-[ext_resource type="Texture2D" uid="uid://f87esynr0b0m" path="res://textures/red_icon_5.svg" id="6_0ntvb"]
-[ext_resource type="Texture2D" uid="uid://bohkrum71r1hy" path="res://textures/red_icon_6.svg" id="7_jg27m"]
-[ext_resource type="Texture2D" uid="uid://vfkswk2a1ywd" path="res://textures/red_icon_7.svg" id="8_qfpjr"]
-[ext_resource type="Texture2D" uid="uid://imnb6254g71c" path="res://textures/red_icon_8.svg" id="9_shp5l"]
+[ext_resource type="Texture2D" uid="uid://s530gjbq3s28" path="res://textures/red_icon_1.png" id="2_klwv0"]
+[ext_resource type="Texture2D" uid="uid://ck38vrphhh3l2" path="res://textures/red_icon_2.png" id="3_10q3u"]
+[ext_resource type="Texture2D" uid="uid://c3gbiicmwqaq7" path="res://textures/red_icon_3.png" id="4_n3sfd"]
+[ext_resource type="Texture2D" uid="uid://cu7iexxulione" path="res://textures/red_icon_4.png" id="5_p7o6t"]
+[ext_resource type="Texture2D" uid="uid://cae3amve03obi" path="res://textures/red_icon_5.png" id="6_0ntvb"]
+[ext_resource type="Texture2D" uid="uid://bo6cm8hcv4u1s" path="res://textures/red_icon_6.png" id="7_jg27m"]
+[ext_resource type="Texture2D" uid="uid://dlrss7cx2euel" path="res://textures/red_icon_7.png" id="8_qfpjr"]
+[ext_resource type="Texture2D" uid="uid://d4ihusn5rufba" path="res://textures/red_icon_8.png" id="9_shp5l"]
 
 [resource]
 script = ExtResource("2_7gnny")
 text = "Republican"
 color = Color(0.845857, 0.344829, 0.339471, 1)
-default_icon = ExtResource("1_4oxoi")
 icons = Array[Texture]([ExtResource("1_4oxoi"), ExtResource("2_klwv0"), ExtResource("3_10q3u"), ExtResource("4_n3sfd"), ExtResource("5_p7o6t"), ExtResource("6_0ntvb"), ExtResource("7_jg27m"), ExtResource("8_qfpjr"), ExtResource("9_shp5l")])

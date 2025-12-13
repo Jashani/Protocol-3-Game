@@ -6,7 +6,6 @@ enum {REPUBLICAN, DEMOCRAT}
 
 @export var text: String
 @export var color: Color
-@export var default_icon: Texture
 @export var icons: Array[Texture]
 
 
