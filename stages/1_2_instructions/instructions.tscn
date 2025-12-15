@@ -1,0 +1,90 @@
+[gd_scene load_steps=5 format=3 uid="uid://whb4hxlsfteq"]
+
+[ext_resource type="Script" uid="uid://d3j2ujqpsmvw3" path="res://stages/1_2_instructions/instructions.gd" id="1_kwil2"]
+[ext_resource type="PackedScene" uid="uid://bmfoyx83weo2d" path="res://stages/2_leaning/leaning.tscn" id="2_6p1th"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6p1th"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.011529654, 0.011529654, 0.07367058, 0.30588236)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xqer3"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 20
+border_width_bottom = 20
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[node name="Instructions" type="Control" node_paths=PackedStringArray("submit_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kwil2")
+next_scene = ExtResource("2_6p1th")
+submit_button = NodePath("ScrollContainer/VBoxContainer/ProceedButton")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_6p1th")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Title" type="Label" parent="ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 100
+text = "Instructions"
+
+[node name="Content" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 32
+theme_override_font_sizes/bold_font_size = 32
+theme_override_font_sizes/bold_italics_font_size = 32
+theme_override_font_sizes/italics_font_size = 32
+theme_override_font_sizes/mono_font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_xqer3")
+bbcode_enabled = true
+text = "Thank you for taking part in this study. In this task you will be placed in a shared discussion space where several participants are evaluating a set of news headlines at the same time. 
+
+You will rate each headline and then see comments that appear from other users with different political backgrounds.
+
+Your own comments will also appear in the shared space and can be viewed by other participants. Please share your honest judgement as we are genuinely interested in your opinions.
+"
+fit_content = true
+autowrap_mode = 2
+
+[node name="ProceedButton" type="Button" parent="ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(360, 80)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 32
+text = "Agree & proceed"
+
+[connection signal="pressed" from="ScrollContainer/VBoxContainer/ProceedButton" to="." method="_on_proceed_button_pressed"]

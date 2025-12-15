@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://bmfoyx83weo2d"]
 
 [ext_resource type="Script" uid="uid://bccumkxmyammr" path="res://stages/2_leaning/leaning.gd" id="1_0tfen"]
-[ext_resource type="PackedScene" uid="uid://2folercq3bco" path="res://stages/3_waiting_room/waiting_room.tscn" id="2_efo31"]
+[ext_resource type="PackedScene" uid="uid://2folercq3bco" path="res://stages/3_1_waiting_room/waiting_room.tscn" id="2_efo31"]
 [ext_resource type="Resource" uid="uid://kx6wmxdwxfhk" path="res://resources/affiliations.tres" id="3_hbp54"]
 [ext_resource type="Texture2D" uid="uid://csofa24wmt7wa" path="res://textures/red_icon_9.png" id="4_ndgoo"]
 [ext_resource type="Texture2D" uid="uid://c72ugx3b232ov" path="res://textures/blue_icon_9.png" id="5_4xtq7"]

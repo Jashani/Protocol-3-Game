@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://2folercq3bco"]
 
 [ext_resource type="Script" uid="uid://cheuta3sptrse" path="res://components/waiting_label_animation.gd" id="1_m6j7u"]
-[ext_resource type="Script" uid="uid://dea28fhccu40e" path="res://stages/3_waiting_room/waiting_room.gd" id="1_ngur2"]
-[ext_resource type="PackedScene" uid="uid://ifh262tmpcqu" path="res://stages/4_discussion_room/discussion_room.tscn" id="2_3r841"]
+[ext_resource type="Script" uid="uid://dea28fhccu40e" path="res://stages/3_1_waiting_room/waiting_room.gd" id="1_ngur2"]
+[ext_resource type="PackedScene" uid="uid://c3cdyaefywbe4" path="res://stages/3_2_post_waiting_room/post_waiting_room.tscn" id="2_6b2ms"]
 
 [node name="WaitingRoom" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_ngur2")
-next_scene = ExtResource("2_3r841")
+next_scene = ExtResource("2_6b2ms")
 min_wait_time = 0.0
 max_wait_time = 3.0
 
