@@ -8,8 +8,8 @@ extends Node
 const FILE_PATH: String = "res://test.csv" # TODO: Determine
 # Headers without added headers from config
 const BUILTIN_HEADERS: PackedStringArray = ["participant_id",
-	"participant_affiliation", "age", "education",
-	"gender", "scenario_id", "headline", "npc_affiliation",
+	"participant_affiliation", "age", "education", "gender",
+	"feedback", "scenario_id", "headline", "npc_affiliation",
 	"comment", "comment_leaning", "post_valence", "post_content"]
 
 var rounds: Array[Dictionary]

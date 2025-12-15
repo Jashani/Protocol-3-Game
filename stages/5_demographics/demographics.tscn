@@ -5,7 +5,7 @@
 [ext_resource type="Resource" uid="uid://kx6wmxdwxfhk" path="res://resources/affiliations.tres" id="3_nw070"]
 [ext_resource type="Theme" uid="uid://cijkuis5xxhmd" path="res://stages/5_demographics/dropdown_theme.tres" id="4_4yt7m"]
 
-[node name="Demographics" type="Control" node_paths=PackedStringArray("proceed_button", "education_options", "gender_options")]
+[node name="Demographics" type="Control" node_paths=PackedStringArray("proceed_button", "education_options", "gender_options", "feedback_box")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -17,6 +17,7 @@ proceed_button = NodePath("Panel/ProceedButton")
 next_scene = ExtResource("2_quwl4")
 education_options = NodePath("Panel/VBoxContainer/EducationOptions")
 gender_options = NodePath("Panel/VBoxContainer/GenderOptions")
+feedback_box = NodePath("Panel/VBoxContainer/FeedbackBox")
 affiliations = ExtResource("3_nw070")
 
 [node name="Panel" type="Panel" parent="."]
@@ -38,30 +39,28 @@ text = "Please let us know a little bit about yourself! All data is anonymized."
 
 [node name="ProceedButton" type="Button" parent="Panel"]
 layout_mode = 1
-anchors_preset = 15
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1672.0
-offset_top = 983.0
+offset_left = -248.0
+offset_top = -97.0
 offset_right = -35.0
 offset_bottom = -38.0
-grow_horizontal = 2
-grow_vertical = 2
+grow_horizontal = 0
+grow_vertical = 0
 theme_override_font_sizes/font_size = 24
 disabled = true
 text = "Proceed"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Panel"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -600.0
-offset_top = -239.0
-offset_right = 600.0
-offset_bottom = 499.0
+anchors_preset = -1
+offset_left = 69.0
+offset_top = 124.0
+offset_right = 1585.0
+offset_bottom = 941.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 20
@@ -125,7 +124,19 @@ popup/item_2/id = 2
 popup/item_3/text = "Prefer not to say"
 popup/item_3/id = 3
 
+[node name="FeedbackTitle" type="Label" parent="Panel/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 42
+text = "Do you have any comments? Things that were fun, confusing, interesting?
+How did you feel about having to share your views with other participants?"
+
+[node name="FeedbackBox" type="TextEdit" parent="Panel/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_font_sizes/font_size = 24
+
 [connection signal="pressed" from="Panel/ProceedButton" to="." method="_on_proceed_button_pressed"]
 [connection signal="value_changed" from="Panel/VBoxContainer/AgeBox" to="." method="_on_age_box_value_changed"]
 [connection signal="item_selected" from="Panel/VBoxContainer/EducationOptions" to="." method="_on_education_options_item_selected"]
 [connection signal="item_selected" from="Panel/VBoxContainer/GenderOptions" to="." method="_on_gender_options_item_selected"]
+[connection signal="text_changed" from="Panel/VBoxContainer/FeedbackBox" to="." method="_on_feedback_box_text_changed"]
