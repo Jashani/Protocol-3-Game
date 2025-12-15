@@ -5,15 +5,17 @@ extends Control
 @export var next_scene: PackedScene = null
 @export var education_options: OptionButton = null
 @export var gender_options: OptionButton = null
+@export var feedback_box: TextEdit = null
 
 @export var affiliations: Affiliations
 
 var demographics := Globals.player_demographics
+var feedback: String
 
 
 func _check_completion() -> void:
 	var fields := [demographics.education, demographics.gender,
-				   demographics.age]
+				   demographics.age, feedback]
 	if not fields.has("") and not fields.has(0):
 		proceed_button.disabled = false
 
@@ -26,6 +28,7 @@ func _save_demographics() -> void:
 	Data.save_for_all_rounds("age", demographics.age)
 	Data.save_for_all_rounds("gender", demographics.gender)
 	Data.save_for_all_rounds("education", demographics.education)
+	Data.save_for_all_rounds("feedback", feedback)
 
 func _on_age_box_value_changed(value: float) -> void:
 	demographics.age = int(value)
@@ -37,4 +40,8 @@ func _on_education_options_item_selected(index: int) -> void:
 
 func _on_gender_options_item_selected(index: int) -> void:
 	demographics.gender = gender_options.get_item_text(index)
+	_check_completion()
+
+func _on_feedback_box_text_changed() -> void:
+	feedback = feedback_box.text
 	_check_completion()
