@@ -24,7 +24,7 @@ grow_vertical = 2
 script = ExtResource("1_3qi6b")
 title = NodePath("PopupContainer/VBoxContainer/Title")
 input = NodePath("PopupContainer/VBoxContainer/ResponseTextEdit")
-submit_button = NodePath("PopupContainer/SubmitButton")
+submit_button = NodePath("PopupContainer/VBoxContainer/SubmitButton")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -53,23 +53,6 @@ grow_vertical = 2
 size_flags_horizontal = 4
 theme_override_styles/panel = SubResource("StyleBoxFlat_5fatv")
 
-[node name="SubmitButton" type="Button" parent="PopupContainer"]
-custom_minimum_size = Vector2(120, 50)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.89100003
-anchor_top = 0.84900004
-anchor_right = 0.97300005
-anchor_bottom = 0.96000004
-offset_left = -0.20605469
-offset_top = -0.05001831
-offset_right = -0.41796875
-offset_bottom = -3.0517578e-05
-size_flags_horizontal = 8
-size_flags_vertical = 8
-theme_override_font_sizes/font_size = 24
-text = "Submit"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="PopupContainer"]
 layout_mode = 1
 anchors_preset = 8
@@ -78,9 +61,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -694.0
-offset_top = -205.0
+offset_top = -243.5
 offset_right = 694.0
-offset_bottom = 147.0
+offset_bottom = 243.5
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 32
@@ -119,15 +102,23 @@ theme_override_font_sizes/font_size = 42
 text = "Oppose"
 
 [node name="ResponseTextEdit" type="TextEdit" parent="PopupContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 100)
+custom_minimum_size = Vector2(0, 150)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/font_size = 24
 placeholder_text = "Enter your thoughts here..."
 
-[connection signal="pressed" from="PopupContainer/SubmitButton" to="." method="_on_submit_button_pressed"]
+[node name="SubmitButton" type="Button" parent="PopupContainer/VBoxContainer"]
+custom_minimum_size = Vector2(120, 50)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+theme_override_font_sizes/font_size = 24
+text = "Submit"
+
 [connection signal="pressed" from="PopupContainer/VBoxContainer/HBoxContainer/SupportButton" to="." method="_on_support_button_pressed"]
 [connection signal="pressed" from="PopupContainer/VBoxContainer/HBoxContainer/UnsureButton" to="." method="_on_unsure_button_pressed"]
 [connection signal="pressed" from="PopupContainer/VBoxContainer/HBoxContainer/OpposeButton" to="." method="_on_oppose_button_pressed"]
 [connection signal="text_changed" from="PopupContainer/VBoxContainer/ResponseTextEdit" to="." method="_on_response_text_edit_text_changed"]
+[connection signal="pressed" from="PopupContainer/VBoxContainer/SubmitButton" to="." method="_on_submit_button_pressed"]
