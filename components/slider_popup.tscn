@@ -14,7 +14,7 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.140495, 0.159856, 0.17498, 1)
 
-[node name="SliderPopup" type="Control" node_paths=PackedStringArray("slider", "title", "left_label", "right_label", "value_label", "labels_container", "submit_button")]
+[node name="SliderPopup" type="Control" node_paths=PackedStringArray("slider", "title", "value_label", "labels_container", "submit_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -24,8 +24,6 @@ grow_vertical = 2
 script = ExtResource("1_60drt")
 slider = NodePath("SliderContainer/VBoxContainer/HSlider")
 title = NodePath("SliderContainer/VBoxContainer/Title")
-left_label = NodePath("SliderContainer/VBoxContainer/LabelsContainer/LeftLabel")
-right_label = NodePath("SliderContainer/VBoxContainer/LabelsContainer/RightLabel")
 value_label = NodePath("SliderContainer/VBoxContainer/ValueLabel")
 labels_container = NodePath("SliderContainer/VBoxContainer/LabelsContainer")
 submit_button = NodePath("SliderContainer/VBoxContainer/SubmitButton")
@@ -44,13 +42,13 @@ custom_minimum_size = Vector2(200, 100)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.11800001
-anchor_top = 0.316
+anchor_top = 0.5
 anchor_right = 0.882
-anchor_bottom = 0.684
+anchor_bottom = 0.5
 offset_left = 0.43997192
-offset_top = -0.2800293
+offset_top = -199.0
 offset_right = -0.44006348
-offset_bottom = 0.27996826
+offset_bottom = 199.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_5fatv")

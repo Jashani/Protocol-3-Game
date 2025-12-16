@@ -3,5 +3,5 @@
 [resource]
 LineEdit/font_sizes/font_size = 36
 PopupMenu/font_sizes/font_separator_size = 24
-PopupMenu/font_sizes/font_size = 24
+PopupMenu/font_sizes/font_size = 36
 PopupMenu/font_sizes/title_font_size = 24

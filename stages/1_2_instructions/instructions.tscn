@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://whb4hxlsfteq"]
 
 [ext_resource type="Script" uid="uid://d3j2ujqpsmvw3" path="res://stages/1_2_instructions/instructions.gd" id="1_kwil2"]
-[ext_resource type="PackedScene" uid="uid://bmfoyx83weo2d" path="res://stages/2_leaning/leaning.tscn" id="2_6p1th"]
+[ext_resource type="PackedScene" uid="uid://bmfoyx83weo2d" path="res://stages/2_1_leaning/leaning.tscn" id="2_6p1th"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6p1th"]
 content_margin_left = 0.0

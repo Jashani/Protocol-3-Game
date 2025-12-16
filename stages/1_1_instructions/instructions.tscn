@@ -31,7 +31,7 @@ _source = "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"16\" height=\"16\">
 "
 base_scale = 2.0
 
-[node name="Instructions" type="Control"]
+[node name="Instructions" type="Control" node_paths=PackedStringArray("checkboxes", "submit_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,6 +40,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4q8y6")
 next_scene = ExtResource("2_h3aw0")
+checkboxes = [NodePath("ScrollContainer/VBoxContainer/CheckBox1"), NodePath("ScrollContainer/VBoxContainer/CheckBox2"), NodePath("ScrollContainer/VBoxContainer/CheckBox3"), NodePath("ScrollContainer/VBoxContainer/CheckBox4"), NodePath("ScrollContainer/VBoxContainer/CheckBox5"), NodePath("ScrollContainer/VBoxContainer/CheckBox6"), NodePath("ScrollContainer/VBoxContainer/CheckBox7")]
+submit_button = NodePath("ScrollContainer/VBoxContainer/ProceedButton")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
 layout_mode = 1
