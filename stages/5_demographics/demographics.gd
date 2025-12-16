@@ -12,10 +12,13 @@ extends Control
 var demographics := Globals.player_demographics
 var feedback: String
 
+func _ready() -> void:
+	$Panel/VBoxContainer/AgeBox.set_value_no_signal(0.0)
+
 
 func _check_completion() -> void:
 	var fields := [demographics.education, demographics.gender,
-				   demographics.age, feedback]
+				   demographics.age]
 	if not fields.has("") and not fields.has(0):
 		proceed_button.disabled = false
 
@@ -44,4 +47,3 @@ func _on_gender_options_item_selected(index: int) -> void:
 
 func _on_feedback_box_text_changed() -> void:
 	feedback = feedback_box.text
-	_check_completion()

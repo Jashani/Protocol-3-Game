@@ -19,21 +19,25 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
-layout_mode = 2
-
-[node name="Label2" type="Label" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
+[node name="Debrief" type="Label" parent="."]
+custom_minimum_size = Vector2(400, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -770.0
+offset_top = -383.5
+offset_right = 770.0
+offset_bottom = 383.5
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_vertical = 6
 theme_override_font_sizes/font_size = 48
 text = "Debrief
-1. All the headlines were false
-2. The other participants were simulated"
-horizontal_alignment = 1
 
-[node name="Thanks" type="Label" parent="PanelContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 6
-theme_override_font_sizes/font_size = 60
-text = "Thank you for participating!"
+Thank you for completing the study! All the headlines you viewed were intentionally fabricated for research purposes and did not describe true statements. The other players you interacted with were simulated profiles rather than real participants. This allowed us to keep the information you received consistent across the study and to examine how people evaluate news stories in controlled social settings. If you have any further questions please email greta.sanna.23@ucl.ac.uk
+"
+horizontal_alignment = 1
+autowrap_mode = 2
