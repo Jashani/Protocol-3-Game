@@ -28,10 +28,11 @@ func _on_proceed_button_pressed() -> void:
 
  # I don't like how this is implemented but whatever
 func _save_demographics() -> void:
-	Data.save_for_all_rounds("age", demographics.age)
-	Data.save_for_all_rounds("gender", demographics.gender)
-	Data.save_for_all_rounds("education", demographics.education)
-	Data.save_for_all_rounds("feedback", feedback)
+	Data.save_globally("age", demographics.age)
+	Data.save_globally("gender", demographics.gender)
+	Data.save_globally("education", demographics.education)
+	Data.save_globally("feedback", feedback)
+	Data.save_globally("participant_affiliation", demographics.affiliation)
 
 func _on_age_box_value_changed(value: float) -> void:
 	demographics.age = int(value)
