@@ -9,16 +9,8 @@ const FILE_PATH: String = "res://test.json"
 
 
 var rounds: Array[Dictionary]
-var participant_id: int = 0 # TODO: set properly
 var results: Dictionary
 
-func _ready() -> void:
-	check_connectivity()
-	save_globally("participant_id", participant_id)
-	call_deferred("_set_headers") # Make sure config has time to load
-
-func check_connectivity():
-	pass
 
 func new_round(round: Round) -> void:
 	var round_dict = {

@@ -84,7 +84,7 @@ custom_minimum_size = Vector2(200, 50)
 layout_mode = 2
 size_flags_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "It's your turn to share your thoughts. How do you feel about the statement?"
+text = "It's your turn to share your thoughts about the headline. What comment do you want to post in the chatroom?"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -101,7 +101,7 @@ theme = SubResource("Theme_3qi6b")
 theme_override_font_sizes/font_size = 42
 theme_override_styles/pressed = SubResource("StyleBoxFlat_3qi6b")
 toggle_mode = true
-text = "Support"
+text = "Believe"
 
 [node name="UnsureButton" type="Button" parent="PopupContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
@@ -116,7 +116,7 @@ size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 42
 theme_override_styles/pressed = SubResource("StyleBoxFlat_4xhit")
 toggle_mode = true
-text = "Oppose"
+text = "Disbelieve"
 
 [node name="ResponseTextEdit" type="TextEdit" parent="PopupContainer/VBoxContainer"]
 custom_minimum_size = Vector2(0, 150)

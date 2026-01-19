@@ -4,6 +4,7 @@ extends Control
 @export var slider_popup_scene: PackedScene
 @export var opinion_popup_scene: PackedScene
 @export var next_scene: PackedScene
+@export var attention_check: PackedScene
 
 @export var chat_container: PanelContainer
 @export var messages_container: Container
@@ -29,6 +30,7 @@ extends Control
 
 @export var use_bias_meter: bool
 
+
 var round: Round
 var random = RandomNumberGenerator.new()
 var player_played: bool = false
@@ -47,6 +49,8 @@ func _run() -> void:
 	await _send_response()
 	await get_tree().create_timer(wait_before_prompt).timeout
 	await _run_prompts(prompts_after)
+	if Scenarios.remaining_scenarios() == 2:
+		await _run_attention_check()
 	await _write_opinion()
 	proceeding_label.visible = true
 	await get_tree().create_timer(wait_after_last_response).timeout
@@ -78,6 +82,12 @@ func _create_slider_popup_from_prompt(prompt: Prompt) -> SliderPopup:
 	slider_popup.from_resource(prompt)
 	chat_container.add_child(slider_popup)
 	return slider_popup
+
+func _run_attention_check() -> void:
+	var check: SliderPopup = attention_check.instantiate()
+	check.set_data_key("attention_check")
+	chat_container.add_child(check)
+	await check.complete
 
 func _send_response() -> void:
 	var response: Dictionary = round.response

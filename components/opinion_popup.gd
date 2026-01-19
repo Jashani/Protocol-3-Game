@@ -58,6 +58,7 @@ func _enable_text() -> void:
 func _on_support_button_pressed() -> void:
 	_enable_text()
 	selected_opinion = "support" # Opinion.SUPPORT
+	support_button.button_pressed = true
 	unsure_button.button_pressed = false
 	oppose_button.button_pressed = false
 
@@ -66,14 +67,16 @@ func _on_unsure_button_pressed() -> void:
 	_enable_text()
 	selected_opinion = "unsure" # Opinion.UNSURE
 	support_button.button_pressed = false
+	unsure_button.button_pressed = true
 	oppose_button.button_pressed = false
 
 
 func _on_oppose_button_pressed() -> void:
 	_enable_text()
 	selected_opinion = "oppose" # Opinion.OPPOSE
-	unsure_button.button_pressed = false
 	support_button.button_pressed = false
+	unsure_button.button_pressed = false
+	oppose_button.button_pressed = true
 
 func _on_response_text_edit_text_changed() -> void:
 	if input.text.length() > 0:

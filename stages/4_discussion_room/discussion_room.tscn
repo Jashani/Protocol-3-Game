@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://ifh262tmpcqu"]
+[gd_scene load_steps=10 format=3 uid="uid://ifh262tmpcqu"]
 
 [ext_resource type="PackedScene" uid="uid://cut142oiv40j7" path="res://components/message.tscn" id="1_bkbga"]
 [ext_resource type="Script" uid="uid://ddcg7xhcq8dew" path="res://stages/4_discussion_room/discussion_room.gd" id="1_teow2"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bankhao6tie43" path="res://components/opinion_popup.tscn" id="4_26afn"]
 [ext_resource type="PackedScene" uid="uid://cc10k3yhbb32s" path="res://stages/5_demographics/demographics.tscn" id="5_ugsu6"]
 [ext_resource type="PackedScene" uid="uid://rric7osp10qg" path="res://components/bias_slider.tscn" id="6_l3uwd"]
+[ext_resource type="PackedScene" uid="uid://ct3a8ejaoah6o" path="res://components/attention_check.tscn" id="6_ypgdu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kfc6"]
 bg_color = Color(0.210764, 0.253468, 0.315617, 1)
@@ -25,6 +26,7 @@ message_scene = ExtResource("1_bkbga")
 slider_popup_scene = ExtResource("3_xohqb")
 opinion_popup_scene = ExtResource("4_26afn")
 next_scene = ExtResource("5_ugsu6")
+attention_check = ExtResource("6_ypgdu")
 chat_container = NodePath("MarginContainer/VBoxContainer/ChatPanelContainer")
 messages_container = NodePath("MarginContainer/VBoxContainer/ChatPanelContainer/ScrollContainer/MessagesVBoxContainer")
 scroll_container = NodePath("MarginContainer/VBoxContainer/ChatPanelContainer/ScrollContainer")
