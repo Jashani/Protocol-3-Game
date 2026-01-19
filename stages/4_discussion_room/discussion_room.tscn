@@ -6,12 +6,12 @@
 [ext_resource type="PackedScene" uid="uid://dif1titn6wnkc" path="res://components/slider_popup.tscn" id="3_xohqb"]
 [ext_resource type="PackedScene" uid="uid://bankhao6tie43" path="res://components/opinion_popup.tscn" id="4_26afn"]
 [ext_resource type="PackedScene" uid="uid://cc10k3yhbb32s" path="res://stages/5_demographics/demographics.tscn" id="5_ugsu6"]
-[ext_resource type="PackedScene" uid="uid://f4rrmtkxp7jr" path="res://components/bias_slider.tscn" id="6_l3uwd"]
+[ext_resource type="PackedScene" uid="uid://rric7osp10qg" path="res://components/bias_slider.tscn" id="6_l3uwd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4kfc6"]
 bg_color = Color(0.210764, 0.253468, 0.315617, 1)
 
-[node name="DiscussionRoom" type="Control" node_paths=PackedStringArray("chat_container", "messages_container", "scroll_container", "title_label", "bias_slider", "next_button")]
+[node name="DiscussionRoom" type="Control" node_paths=PackedStringArray("chat_container", "messages_container", "scroll_container", "title_label", "bias_slider", "next_button", "proceeding_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -31,9 +31,11 @@ scroll_container = NodePath("MarginContainer/VBoxContainer/ChatPanelContainer/Sc
 title_label = NodePath("MarginContainer/VBoxContainer/TitlePanelContainer/VBoxContainer/TitleLabel")
 bias_slider = NodePath("MarginContainer/VBoxContainer/TitlePanelContainer/VBoxContainer/BiasSlider")
 next_button = NodePath("MarginContainer/VBoxContainer/TitlePanelContainer/VBoxContainer/NextButton")
-max_wait_for_npc_response = 1.0
-wait_before_prompt = 1.0
-wait_after_last_response = 1.0
+proceeding_label = NodePath("ProceedingLabel")
+max_wait_for_npc_response = 4.0
+min_wait_for_npc_response = 2.0
+wait_after_last_response = 3.0
+wait_after_next = 3.0
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -108,5 +110,26 @@ layout_mode = 2
 visible = false
 layout_mode = 2
 size_flags_vertical = 3
+
+[node name="ProceedingLabel" type="Label" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -431.0
+offset_top = -55.0
+offset_right = -26.0
+offset_bottom = -11.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 0.5019608)
+theme_override_font_sizes/font_size = 24
+text = "Proceeding to next headline..."
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/TitlePanelContainer/VBoxContainer/NextButton" to="." method="_on_next_button_pressed"]

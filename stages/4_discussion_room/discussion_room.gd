@@ -11,6 +11,7 @@ extends Control
 @export var title_label: Label
 @export var bias_slider: BiasSlider
 @export var next_button: Button
+@export var proceeding_label: Label
 
 ## Max seconds for a non-player response
 @export var max_wait_for_npc_response: float = 3.0
@@ -47,6 +48,7 @@ func _run() -> void:
 	await get_tree().create_timer(wait_before_prompt).timeout
 	await _run_prompts(prompts_after)
 	await _write_opinion()
+	proceeding_label.visible = true
 	await get_tree().create_timer(wait_after_last_response).timeout
 	_next()
 
