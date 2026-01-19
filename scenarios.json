@@ -50,7 +50,7 @@
 			"right": [
 				{
 					"id": 10,
-					"title": "First-Grade Reading Scores Drop Sharply in Districts That Replaced Traditional Reading Lessons With DEI-Focused Curriculum"
+					"title": "First-Grade Reading Scores Drop Sharply in Districts That Replaced Traditional Reading Lessons With Diversity-Focused Curriculum"
 				},
 				{
 					"id": 11,
@@ -127,12 +127,12 @@
 	],
 	"responses": [
 		{ "support": "I know this is true.", "oppose": "I know this is false." },
-		{ "support": "This is definitely true.", "oppose": "This is definitely not true." },
-		{ "support": "I'm sure this headline is correct.", "oppose": "I'm sure this headline is wrong." },
-		{ "support": "There's no doubt, this is true.", "oppose": "There's no doubt this is false." },
-		{ "support": "This is absolutely accurate.", "oppose": "This is absolutely untrue." },
-		{ "support": "I'm certain this claim is right.", "oppose": "I'm certain this claim is false." },
-		{ "support": "No question — this is true.", "oppose": "No question — this is false." },
+		{ "support": "definitely true.", "oppose": "definitely not true." },
+		{ "support": "Im sure this headline is correct.", "oppose": "Im sure this headline is wrong." },
+		{ "support": "There's no doubt this is true", "oppose": "There's no doubt this is false" },
+		{ "support": "this is absolutely accurate", "oppose": "this is absolutely untrue" },
+		{ "support": "I'm certain this  is right.", "oppose": "I'm certain this  is false." },
+		{ "support": "No question, this is true.", "oppose": "No question, this is false." },
 		{ "support": "I'm positive this headline is true.", "oppose": "I'm positive this headline is wrong." }
 	],
 	"arrangements": [
