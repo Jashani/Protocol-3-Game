@@ -77,9 +77,10 @@ theme_override_font_sizes/font_size = 48
 text = "Next"
 
 [node name="BiasSlider" parent="MarginContainer/VBoxContainer/TitlePanelContainer/VBoxContainer" instance=ExtResource("6_l3uwd")]
+custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_horizontal = 4
-size_flags_vertical = 3
+size_flags_vertical = 8
 
 [node name="ChatPanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2

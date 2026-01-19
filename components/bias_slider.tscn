@@ -30,8 +30,9 @@ custom_minimum_size = Vector2(0, 280)
 layout_mode = 3
 anchor_right = 0.74100006
 anchor_bottom = 0.23900001
+offset_top = -11.0
 offset_right = 0.27990723
-offset_bottom = -0.11999512
+offset_bottom = 10.880005
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 0
@@ -40,25 +41,27 @@ script = ExtResource("1_3so0t")
 slider = NodePath("SliderContainer/VBoxContainer/HSlider")
 
 [node name="SliderContainer" type="PanelContainer" parent="."]
-custom_minimum_size = Vector2(1400, 260)
+custom_minimum_size = Vector2(1400, 200)
 layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.036000002
-anchor_right = 1.0
-anchor_bottom = 0.96400005
-offset_top = 17.919998
-offset_bottom = -17.920013
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -700.0
+offset_top = -203.0
+offset_right = 700.0
 grow_horizontal = 2
-grow_vertical = 2
+grow_vertical = 0
 theme_override_styles/panel = SubResource("StyleBoxFlat_htgtg")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="SliderContainer"]
 layout_mode = 2
+size_flags_vertical = 4
 theme_override_constants/separation = 16
 
 [node name="LabelsContainer" type="HBoxContainer" parent="SliderContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 theme_override_constants/separation = 140
 
 [node name="ExtremeLeftLabel" type="Label" parent="SliderContainer/VBoxContainer/LabelsContainer"]
@@ -84,8 +87,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 30
-text = "Least
-biased"
+text = "Least biased"
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -109,7 +111,7 @@ vertical_alignment = 2
 
 [node name="HSlider" type="HSlider" parent="SliderContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 6
+size_flags_vertical = 4
 theme_override_icons/grabber_disabled = ExtResource("2_tjvuk")
 theme_override_styles/slider = SubResource("StyleBoxTexture_y831w")
 theme_override_styles/grabber_area = SubResource("StyleBoxEmpty_e2oxt")
@@ -120,7 +122,6 @@ scrollable = false
 
 [node name="RichTextLabel" type="RichTextLabel" parent="SliderContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
 bbcode_enabled = true
 text = "[font_size=32][i][b][color=red]Caution:[/color][/b] This bar shows a potential bias automatically detected by an AI system.[/i][/font_size]"
 fit_content = true
