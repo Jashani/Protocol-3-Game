@@ -11,6 +11,10 @@ const CONTENT_KEY = "post_content"
 @export var input: TextEdit = null
 @export var submit_button: Button = null
 
+@export var support_button: Button = null
+@export var unsure_button: Button = null
+@export var oppose_button: Button = null
+
 
 var selected_opinion: String # Opinion
 
@@ -54,17 +58,22 @@ func _enable_text() -> void:
 func _on_support_button_pressed() -> void:
 	_enable_text()
 	selected_opinion = "support" # Opinion.SUPPORT
+	unsure_button.button_pressed = false
+	oppose_button.button_pressed = false
 
 
 func _on_unsure_button_pressed() -> void:
 	_enable_text()
 	selected_opinion = "unsure" # Opinion.UNSURE
+	support_button.button_pressed = false
+	oppose_button.button_pressed = false
 
 
 func _on_oppose_button_pressed() -> void:
 	_enable_text()
 	selected_opinion = "oppose" # Opinion.OPPOSE
-
+	unsure_button.button_pressed = false
+	support_button.button_pressed = false
 
 func _on_response_text_edit_text_changed() -> void:
 	if input.text.length() > 0:

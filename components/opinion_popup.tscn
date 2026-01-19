@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bankhao6tie43"]
+[gd_scene load_steps=6 format=3 uid="uid://bankhao6tie43"]
 
 [ext_resource type="Script" uid="uid://jo4vk157jp7x" path="res://components/opinion_popup.gd" id="1_3qi6b"]
 
@@ -14,7 +14,15 @@ border_width_right = 10
 border_width_bottom = 10
 border_color = Color(0.140495, 0.159856, 0.17498, 1)
 
-[node name="OpinionPopup" type="Control" node_paths=PackedStringArray("title", "input", "submit_button")]
+[sub_resource type="Theme" id="Theme_3qi6b"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3qi6b"]
+bg_color = Color(0.025268085, 0.12367869, 0.047784075, 0.7411765)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4xhit"]
+bg_color = Color(0.16047794, 0.02112337, 0.030263906, 0.7411765)
+
+[node name="OpinionPopup" type="Control" node_paths=PackedStringArray("title", "input", "submit_button", "support_button", "unsure_button", "oppose_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,6 +33,9 @@ script = ExtResource("1_3qi6b")
 title = NodePath("PopupContainer/VBoxContainer/Title")
 input = NodePath("PopupContainer/VBoxContainer/ResponseTextEdit")
 submit_button = NodePath("PopupContainer/VBoxContainer/SubmitButton")
+support_button = NodePath("PopupContainer/VBoxContainer/HBoxContainer/SupportButton")
+unsure_button = NodePath("PopupContainer/VBoxContainer/HBoxContainer/UnsureButton")
+oppose_button = NodePath("PopupContainer/VBoxContainer/HBoxContainer/OpposeButton")
 
 [node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
@@ -86,19 +97,25 @@ theme_override_constants/separation = 20
 [node name="SupportButton" type="Button" parent="PopupContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme = SubResource("Theme_3qi6b")
 theme_override_font_sizes/font_size = 42
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3qi6b")
+toggle_mode = true
 text = "Support"
 
 [node name="UnsureButton" type="Button" parent="PopupContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 42
+toggle_mode = true
 text = "Unsure"
 
 [node name="OpposeButton" type="Button" parent="PopupContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 42
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4xhit")
+toggle_mode = true
 text = "Oppose"
 
 [node name="ResponseTextEdit" type="TextEdit" parent="PopupContainer/VBoxContainer"]
@@ -116,6 +133,19 @@ size_flags_horizontal = 8
 size_flags_vertical = 8
 theme_override_font_sizes/font_size = 24
 text = "Submit"
+
+[node name="SubmitTip" type="Label" parent="PopupContainer/VBoxContainer/SubmitButton"]
+layout_mode = 0
+offset_left = -700.0
+offset_top = 3.0
+offset_right = -17.0
+offset_bottom = 47.0
+size_flags_vertical = 8
+theme_override_colors/font_color = Color(1, 1, 1, 0.5019608)
+theme_override_font_sizes/font_size = 24
+text = "Select opinion, then write thoughts to submit"
+horizontal_alignment = 2
+vertical_alignment = 1
 
 [connection signal="pressed" from="PopupContainer/VBoxContainer/HBoxContainer/SupportButton" to="." method="_on_support_button_pressed"]
 [connection signal="pressed" from="PopupContainer/VBoxContainer/HBoxContainer/UnsureButton" to="." method="_on_unsure_button_pressed"]
