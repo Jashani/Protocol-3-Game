@@ -40,7 +40,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4q8y6")
 next_scene = ExtResource("2_h3aw0")
-checkboxes = [NodePath("ScrollContainer/VBoxContainer/CheckBox1"), NodePath("ScrollContainer/VBoxContainer/CheckBox2"), NodePath("ScrollContainer/VBoxContainer/CheckBox3"), NodePath("ScrollContainer/VBoxContainer/CheckBox4"), NodePath("ScrollContainer/VBoxContainer/CheckBox5"), NodePath("ScrollContainer/VBoxContainer/CheckBox6"), NodePath("ScrollContainer/VBoxContainer/CheckBox7")]
+checkboxes = [NodePath("ScrollContainer/VBoxContainer/AgreeCheckBox")]
 submit_button = NodePath("ScrollContainer/VBoxContainer/ProceedButton")
 
 [node name="PanelContainer" type="PanelContainer" parent="."]
@@ -111,73 +111,28 @@ text = " This study has been approved by the UCL Departmental Ethics Chair for E
 
 [b]Consent[/b]
 
-Participants will NOT be able to proceed unless they agree to all of these statements. Click the checkbox or the statement to agree.
+Please confirm that you agree with all of the following:
+
+[ul]
+I have read the information above and understand I can email the researchers with any questions.
+I understand that my personal information will be used for the purposes explained to me. I understand that according to data protection legislation, 'public task' will be the lawful basis for processing.
+I understand that all my personal information will remain confidential and that my data gathered in the study will be stored anonymously and securely. It will not be possible to identify me in any publications.
+I understand that my anonymised research data may be shared with, and used by, others for future research (no-one will be able to identify you when these data are shared).
+I understand that I am free to withdraw from the study without penalty if I so wish, simply by closing my browser.
+I confirm that I am over 18 years of age.
+I consent to take part in the study.
+[/ul]
 "
 fit_content = true
 autowrap_mode = 2
 
-[node name="CheckBox1" type="CheckBox" parent="ScrollContainer/VBoxContainer"]
+[node name="AgreeCheckBox" type="CheckBox" parent="ScrollContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_constants/h_separation = 16
 theme_override_font_sizes/font_size = 32
 theme_override_icons/checked = SubResource("DPITexture_6p1th")
 theme_override_icons/unchecked = SubResource("DPITexture_hf2tj")
-text = "I have read the information above and understand I can email the researchers with any questions."
-autowrap_mode = 2
-
-[node name="CheckBox2" type="CheckBox" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 16
-theme_override_font_sizes/font_size = 32
-theme_override_icons/checked = SubResource("DPITexture_6p1th")
-theme_override_icons/unchecked = SubResource("DPITexture_hf2tj")
-text = "I understand that my personal information will be used for the purposes explained to me. I understand that according to data protection legislation, 'public task' will be the lawful basis for processing."
-autowrap_mode = 2
-
-[node name="CheckBox3" type="CheckBox" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 16
-theme_override_font_sizes/font_size = 32
-theme_override_icons/checked = SubResource("DPITexture_6p1th")
-theme_override_icons/unchecked = SubResource("DPITexture_hf2tj")
-text = "I understand that all my personal information will remain confidential and that my data gathered in the study will be stored anonymously and securely. It will not be possible to identify me in any publications."
-autowrap_mode = 2
-
-[node name="CheckBox4" type="CheckBox" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 16
-theme_override_font_sizes/font_size = 32
-theme_override_icons/checked = SubResource("DPITexture_6p1th")
-theme_override_icons/unchecked = SubResource("DPITexture_hf2tj")
-text = "I understand that my anonymised research data may be shared with, and used by, others for future research (no-one will be able to identify you when these data are shared)."
-autowrap_mode = 2
-
-[node name="CheckBox5" type="CheckBox" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 16
-theme_override_font_sizes/font_size = 32
-theme_override_icons/checked = SubResource("DPITexture_6p1th")
-theme_override_icons/unchecked = SubResource("DPITexture_hf2tj")
-text = "I understand that I am free to withdraw from the study without penalty if I so wish, simply by closing my browser.
-"
-autowrap_mode = 2
-
-[node name="CheckBox6" type="CheckBox" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 16
-theme_override_font_sizes/font_size = 32
-theme_override_icons/checked = SubResource("DPITexture_6p1th")
-theme_override_icons/unchecked = SubResource("DPITexture_hf2tj")
-text = "I confirm that I am over 18 years of age."
-autowrap_mode = 2
-
-[node name="CheckBox7" type="CheckBox" parent="ScrollContainer/VBoxContainer"]
-layout_mode = 2
-theme_override_constants/h_separation = 16
-theme_override_font_sizes/font_size = 32
-theme_override_icons/checked = SubResource("DPITexture_6p1th")
-theme_override_icons/unchecked = SubResource("DPITexture_hf2tj")
-text = "I consent to take part in the study."
+text = "I agree to all of the above."
 autowrap_mode = 2
 
 [node name="ProceedButton" type="Button" parent="ScrollContainer/VBoxContainer"]
