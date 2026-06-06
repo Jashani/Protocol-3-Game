@@ -1,0 +1,425 @@
+[gd_scene load_steps=6 format=3 uid="uid://aw5zxc2n4t9k3"]
+
+[ext_resource type="Script" uid="uid://bf3yta8s6r2p7" path="res://stages/1_4_priors_bias/priors_bias.gd" id="1_script"]
+[ext_resource type="PackedScene" uid="uid://2folercq3bco" path="res://stages/3_1_waiting_room/waiting_room.tscn" id="2_next"]
+[ext_resource type="Texture2D" uid="uid://csofa24wmt7wa" path="res://textures/red_icon_9.png" id="3_rep_icon"]
+[ext_resource type="Texture2D" uid="uid://c72ugx3b232ov" path="res://textures/blue_icon_9.png" id="4_dem_icon"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bg"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.011529654, 0.011529654, 0.07367058, 0.30588236)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="PriorsBias" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+next_scene = ExtResource("2_next")
+
+[node name="BgPanel" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_bg")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_right = -60.0
+offset_top = 40.0
+offset_bottom = -40.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_scroll_mode = 0
+
+[node name="MainVBox" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 50
+
+[node name="Title" type="Label" parent="ScrollContainer/MainVBox"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "About other users"
+
+[node name="SectionsContainer" type="VBoxContainer" parent="ScrollContainer/MainVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 80
+
+[node name="RepSection" type="VBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="RepHeader" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="RepIcon" type="TextureRect" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepHeader"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 80)
+stretch_mode = 5
+texture = ExtResource("3_rep_icon")
+
+[node name="RepQuestion" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 38
+text = "What is the level of bias you would expect from any given Republican user on the following news related topics? A stronger bias means they are more likely to endorse claims that support their party or reject claims that oppose it, regardless of whether those claims are true."
+autowrap_mode = 2
+
+[node name="RepScaleLabels" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RepScaleLeft" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepScaleLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "No bias (0)"
+
+[node name="RepScaleSpacer" type="Control" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepScaleLabels"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RepScaleRight" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepScaleLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "(100) Extremely biased"
+
+[node name="RepCrimeRow" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="RepCrimeLabel" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepCrimeRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 0)
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "Crime"
+
+[node name="RepCrimeSlider" type="HSlider" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepCrimeRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 50)
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 50.0
+
+[node name="RepCrimeValue" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepCrimeRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(80, 0)
+horizontal_alignment = 2
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "50"
+
+[node name="RepEducationRow" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="RepEducationLabel" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepEducationRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 0)
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "Education"
+
+[node name="RepEducationSlider" type="HSlider" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepEducationRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 50)
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 50.0
+
+[node name="RepEducationValue" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepEducationRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(80, 0)
+horizontal_alignment = 2
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "50"
+
+[node name="RepImmigrationRow" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="RepImmigrationLabel" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepImmigrationRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 0)
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "Immigration"
+
+[node name="RepImmigrationSlider" type="HSlider" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepImmigrationRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 50)
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 50.0
+
+[node name="RepImmigrationValue" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepImmigrationRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(80, 0)
+horizontal_alignment = 2
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "50"
+
+[node name="RepEnvironmentRow" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="RepEnvironmentLabel" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepEnvironmentRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 0)
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "Environment"
+
+[node name="RepEnvironmentSlider" type="HSlider" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepEnvironmentRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 50)
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 50.0
+
+[node name="RepEnvironmentValue" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepEnvironmentRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(80, 0)
+horizontal_alignment = 2
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "50"
+
+[node name="DemSection" type="VBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="DemHeader" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="DemIcon" type="TextureRect" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemHeader"]
+layout_mode = 2
+custom_minimum_size = Vector2(80, 80)
+stretch_mode = 5
+texture = ExtResource("4_dem_icon")
+
+[node name="DemQuestion" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemHeader"]
+layout_mode = 2
+size_flags_horizontal = 3
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 38
+text = "What is the level of bias you would expect from any given Democrat user on the following news related topics? A stronger bias means they are more likely to endorse claims that support their party or reject claims that oppose it, regardless of whether those claims are true."
+autowrap_mode = 2
+
+[node name="DemScaleLabels" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DemScaleLeft" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemScaleLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "No bias (0)"
+
+[node name="DemScaleSpacer" type="Control" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemScaleLabels"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DemScaleRight" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemScaleLabels"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+text = "(100) Extremely biased"
+
+[node name="DemCrimeRow" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="DemCrimeLabel" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemCrimeRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 0)
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "Crime"
+
+[node name="DemCrimeSlider" type="HSlider" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemCrimeRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 50)
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 50.0
+
+[node name="DemCrimeValue" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemCrimeRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(80, 0)
+horizontal_alignment = 2
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "50"
+
+[node name="DemEducationRow" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="DemEducationLabel" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemEducationRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 0)
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "Education"
+
+[node name="DemEducationSlider" type="HSlider" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemEducationRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 50)
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 50.0
+
+[node name="DemEducationValue" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemEducationRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(80, 0)
+horizontal_alignment = 2
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "50"
+
+[node name="DemImmigrationRow" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="DemImmigrationLabel" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemImmigrationRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 0)
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "Immigration"
+
+[node name="DemImmigrationSlider" type="HSlider" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemImmigrationRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 50)
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 50.0
+
+[node name="DemImmigrationValue" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemImmigrationRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(80, 0)
+horizontal_alignment = 2
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "50"
+
+[node name="DemEnvironmentRow" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 20
+
+[node name="DemEnvironmentLabel" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemEnvironmentRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(320, 0)
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "Environment"
+
+[node name="DemEnvironmentSlider" type="HSlider" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemEnvironmentRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 50)
+min_value = 0.0
+max_value = 100.0
+step = 1.0
+value = 50.0
+
+[node name="DemEnvironmentValue" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemEnvironmentRow"]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(80, 0)
+horizontal_alignment = 2
+vertical_alignment = 1
+theme_override_font_sizes/font_size = 32
+text = "50"
+
+[node name="ProceedRow" type="HBoxContainer" parent="ScrollContainer/MainVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProceedSpacer" type="Control" parent="ScrollContainer/MainVBox/ProceedRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProceedButton" type="Button" parent="ScrollContainer/MainVBox/ProceedRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(360, 80)
+theme_override_font_sizes/font_size = 32
+text = "Proceed"
+
+[connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepCrimeRow/RepCrimeSlider" to="." method="_on_rep_crime_slider_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepEducationRow/RepEducationSlider" to="." method="_on_rep_education_slider_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepImmigrationRow/RepImmigrationSlider" to="." method="_on_rep_immigration_slider_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepEnvironmentRow/RepEnvironmentSlider" to="." method="_on_rep_environment_slider_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemCrimeRow/DemCrimeSlider" to="." method="_on_dem_crime_slider_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemEducationRow/DemEducationSlider" to="." method="_on_dem_education_slider_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemImmigrationRow/DemImmigrationSlider" to="." method="_on_dem_immigration_slider_value_changed"]
+[connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemEnvironmentRow/DemEnvironmentSlider" to="." method="_on_dem_environment_slider_value_changed"]
+[connection signal="pressed" from="ScrollContainer/MainVBox/ProceedRow/ProceedButton" to="." method="_on_proceed_button_pressed"]
