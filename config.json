@@ -26,8 +26,8 @@
 			"type": "slider",
 			"stage": "after",
 			"column_name": "reliability",
-			"text": "Based on all available information, how knowledgeable do you think the first participant is about the topic of the headline?",
-			"labels": ["Not at all knowledgeable", "Extremely knowledgeable"],
+			"text": "Based on what you have seen, how likely is this user to have accurate beliefs about the topic of the headline?",
+			"labels": ["Not at all", "Completely"],
 			"min_value": 0.0,
 			"max_value": 100.0,
 			"value": 50.0
