@@ -5,22 +5,23 @@ extends Control
 @export var next_scene: PackedScene = null
 @export var education_options: OptionButton = null
 @export var gender_options: OptionButton = null
+@export var sharing_feeling_box: TextEdit = null
 @export var feedback_box: TextEdit = null
 
 @export var affiliations: Affiliations
 
 var demographics := Globals.player_demographics
+var sharing_feeling: String = ""
 var feedback: String
 
 func _ready() -> void:
-	$Panel/VBoxContainer/AgeBox.set_value_no_signal(0.0)
+	$ScrollContainer/VBoxContainer/AgeBox.set_value_no_signal(0.0)
 
 
 func _check_completion() -> void:
 	var fields := [demographics.education, demographics.gender,
-				   demographics.age]
-	if not fields.has("") and not fields.has(0):
-		proceed_button.disabled = false
+				   demographics.age, sharing_feeling]
+	proceed_button.disabled = fields.has("") or fields.has(0)
 
 func _on_proceed_button_pressed() -> void:
 	_save_demographics()
@@ -31,6 +32,7 @@ func _save_demographics() -> void:
 	Data.save_globally("age", demographics.age)
 	Data.save_globally("gender", demographics.gender)
 	Data.save_globally("education", demographics.education)
+	Data.save_globally("sharing_feeling", sharing_feeling)
 	Data.save_globally("feedback", feedback)
 	Data.save_globally("participant_affiliation", demographics.affiliation)
 
@@ -45,6 +47,11 @@ func _on_education_options_item_selected(index: int) -> void:
 func _on_gender_options_item_selected(index: int) -> void:
 	demographics.gender = gender_options.get_item_text(index)
 	_check_completion()
+
+func _on_sharing_feeling_box_text_changed() -> void:
+	sharing_feeling = sharing_feeling_box.text
+	_check_completion()
+
 
 func _on_feedback_box_text_changed() -> void:
 	feedback = feedback_box.text
