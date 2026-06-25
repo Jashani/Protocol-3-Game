@@ -45,6 +45,8 @@ func _run() -> void:
 func _get_prompts() -> void:
 	var prompts: Array = Config.config['prompts']
 	for prompt in prompts:
+		if prompt.get('column_name') == 'attention_check' and not Scenarios.is_attention_check_scenario():
+			continue
 		var prompt_resource = Prompt.new_from_dict(prompt)
 		if prompt_resource.stage == Prompt.Stage.BEFORE:
 			prompts_before.append(prompt_resource)

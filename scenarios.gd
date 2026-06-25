@@ -3,14 +3,15 @@ extends Node
 @export var scenarios_path = "res://scenarios.json"
 
 var scenarios: Array[Round]
-
 var scenarios_config: Dictionary
+var total_scenarios: int = 0
 
 func _ready() -> void:
 	_load_config()
 	_build_response_pool()
 	_load_random_scenarios()
 	scenarios.shuffle()
+	total_scenarios = scenarios.size()
 
 func _load_config() -> void:
 	var scenarios_json = FileAccess.get_file_as_string(scenarios_path)
@@ -22,6 +23,11 @@ func get_scenario() -> Round:
 
 func remaining_scenarios() -> int:
 	return scenarios.size()
+
+func is_attention_check_scenario() -> bool:
+	var target := mini(5, total_scenarios)
+	var current := total_scenarios - scenarios.size()
+	return current == target
 
 func _load_random_scenarios() -> void:
 	var arrangements = scenarios_config["arrangements"]
