@@ -404,9 +404,12 @@ text = "50"
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="ProceedSpacer" type="Control" parent="ScrollContainer/MainVBox/ProceedRow"]
+[node name="HintLabel" type="Label" parent="ScrollContainer/MainVBox/ProceedRow"]
 layout_mode = 2
 size_flags_horizontal = 3
+theme_override_colors/font_color = Color(1, 1, 1, 0.537255)
+theme_override_font_sizes/font_size = 24
+text = "Please interact with all sliders to continue..."
 
 [node name="ProceedButton" type="Button" parent="ScrollContainer/MainVBox/ProceedRow"]
 layout_mode = 2
