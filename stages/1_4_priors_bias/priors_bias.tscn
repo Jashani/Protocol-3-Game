@@ -100,7 +100,7 @@ size_flags_horizontal = 3
 [node name="RepScaleLeft" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepScaleLabels"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "No bias (0)"
+text = "No bias"
 
 [node name="RepScaleSpacer" type="Control" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepScaleLabels"]
 layout_mode = 2
@@ -109,7 +109,7 @@ size_flags_horizontal = 3
 [node name="RepScaleRight" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepScaleLabels"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "(100) Extremely biased"
+text = "Extremely biased"
 
 [node name="RepCrimeRow" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection"]
 layout_mode = 2
@@ -269,7 +269,7 @@ size_flags_horizontal = 3
 [node name="DemScaleLeft" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemScaleLabels"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "No bias (0)"
+text = "No bias"
 
 [node name="DemScaleSpacer" type="Control" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemScaleLabels"]
 layout_mode = 2
@@ -278,7 +278,7 @@ size_flags_horizontal = 3
 [node name="DemScaleRight" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemScaleLabels"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "(100) Extremely biased"
+text = "Extremely biased"
 
 [node name="DemCrimeRow" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection"]
 layout_mode = 2

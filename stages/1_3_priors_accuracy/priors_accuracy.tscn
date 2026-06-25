@@ -88,7 +88,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 vertical_alignment = 1
 theme_override_font_sizes/font_size = 38
-text = "Imagine a typical Republican user on this platform who is presented with a politically neutral headline on the following topics. How likely are they to be right about the veracity of the headline?"
+text = "Imagine a typical Republican user on this platform who is presented with a politically neutral headline on the following topics. How likely are they to have the knowledge to correctly identify whether the headline is true or false?"
 autowrap_mode = 2
 
 [node name="RepScaleLabels" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection"]
@@ -98,7 +98,7 @@ size_flags_horizontal = 3
 [node name="RepScaleLeft" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepScaleLabels"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "Not at all (0)"
+text = "Not at all likely"
 
 [node name="RepScaleSpacer" type="Control" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepScaleLabels"]
 layout_mode = 2
@@ -107,7 +107,7 @@ size_flags_horizontal = 3
 [node name="RepScaleRight" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepScaleLabels"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "(100) Completely"
+text = "Extremely likely"
 
 [node name="RepCrimeRow" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection"]
 layout_mode = 2
@@ -255,7 +255,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 vertical_alignment = 1
 theme_override_font_sizes/font_size = 38
-text = "Imagine a typical Democrat user on this platform who is presented with a politically neutral headline on the following topics. How likely are they to be right about the veracity of the headline?"
+text = "Imagine a typical Democrat user on this platform who is presented with a politically neutral headline on the following topics. How likely are they to have the knowledge to correctly identify whether the headline is true or false?"
 autowrap_mode = 2
 
 [node name="DemScaleLabels" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection"]
@@ -265,7 +265,7 @@ size_flags_horizontal = 3
 [node name="DemScaleLeft" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemScaleLabels"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "Not at all (0)"
+text = "Not at all likely"
 
 [node name="DemScaleSpacer" type="Control" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemScaleLabels"]
 layout_mode = 2
@@ -274,7 +274,7 @@ size_flags_horizontal = 3
 [node name="DemScaleRight" type="Label" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemScaleLabels"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 26
-text = "(100) Completely"
+text = "Extremely likely"
 
 [node name="DemCrimeRow" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection"]
 layout_mode = 2
