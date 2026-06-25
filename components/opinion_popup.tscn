@@ -2,6 +2,8 @@
 
 [ext_resource type="Script" uid="uid://jo4vk157jp7x" path="res://components/opinion_popup.gd" id="1_3qi6b"]
 
+[sub_resource type="ButtonGroup" id="ButtonGroup_choice"]
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5fatv"]
 content_margin_left = 50.0
 content_margin_top = 20.0
@@ -108,18 +110,24 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 42
+toggle_mode = true
+button_group = SubResource("ButtonGroup_choice")
 text = "Believe"
 
 [node name="UnsureButton" type="Button" parent="PopupContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 42
+toggle_mode = true
+button_group = SubResource("ButtonGroup_choice")
 text = "Unsure"
 
 [node name="OpposeButton" type="Button" parent="PopupContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 42
+toggle_mode = true
+button_group = SubResource("ButtonGroup_choice")
 text = "Disbelieve"
 
 [node name="ResponseTextEdit" type="TextEdit" parent="PopupContainer"]
