@@ -39,7 +39,16 @@ func set_title(text: String) -> void:
 
 func set_value_label(value: float) -> void:
 	value = clamp(value, min_value, max_value)
-	value_label.text = "%0.1f" % value + "%"
+	if min_value < 0.0:
+		var abs_val := absf(value)
+		if value < 0.0:
+			value_label.text = "%.1f%% left bias" % abs_val
+		elif value > 0.0:
+			value_label.text = "%.1f%% right bias" % abs_val
+		else:
+			value_label.text = "0.0%"
+	else:
+		value_label.text = "%.1f%%" % value
 
 
 func set_labels(values: Array[String]) -> void:
