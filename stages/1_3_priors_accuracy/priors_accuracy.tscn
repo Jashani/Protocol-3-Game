@@ -88,7 +88,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 vertical_alignment = 1
 theme_override_font_sizes/font_size = 38
-text = "How likely do you think a typical Republican user on this platform is to have accurate beliefs about each of the following topics?"
+text = "Imagine a typical Republican user on this platform who is presented with a politically neutral headline on the following topics. How likely are they to be right about the veracity of the headline?"
 autowrap_mode = 2
 
 [node name="RepScaleLabels" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection"]
@@ -255,7 +255,7 @@ layout_mode = 2
 size_flags_horizontal = 3
 vertical_alignment = 1
 theme_override_font_sizes/font_size = 38
-text = "How likely do you think a typical Democrat user on this platform is to have accurate beliefs about each of the following topics?"
+text = "Imagine a typical Democrat user on this platform who is presented with a politically neutral headline on the following topics. How likely are they to be right about the veracity of the headline?"
 autowrap_mode = 2
 
 [node name="DemScaleLabels" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection"]
