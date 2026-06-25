@@ -416,14 +416,23 @@ size_flags_horizontal = 3
 layout_mode = 2
 custom_minimum_size = Vector2(360, 80)
 theme_override_font_sizes/font_size = 32
+disabled = true
 text = "Proceed"
 
 [connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepCrimeRow/RepCrimeSlider" to="." method="_on_rep_crime_slider_value_changed"]
+[connection signal="drag_started" from="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepCrimeRow/RepCrimeSlider" to="." method="_on_rep_crime_slider_drag_started"]
 [connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepEducationRow/RepEducationSlider" to="." method="_on_rep_education_slider_value_changed"]
+[connection signal="drag_started" from="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepEducationRow/RepEducationSlider" to="." method="_on_rep_education_slider_drag_started"]
 [connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepImmigrationRow/RepImmigrationSlider" to="." method="_on_rep_immigration_slider_value_changed"]
+[connection signal="drag_started" from="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepImmigrationRow/RepImmigrationSlider" to="." method="_on_rep_immigration_slider_drag_started"]
 [connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepEnvironmentRow/RepEnvironmentSlider" to="." method="_on_rep_environment_slider_value_changed"]
+[connection signal="drag_started" from="ScrollContainer/MainVBox/SectionsContainer/RepSection/RepEnvironmentRow/RepEnvironmentSlider" to="." method="_on_rep_environment_slider_drag_started"]
 [connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemCrimeRow/DemCrimeSlider" to="." method="_on_dem_crime_slider_value_changed"]
+[connection signal="drag_started" from="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemCrimeRow/DemCrimeSlider" to="." method="_on_dem_crime_slider_drag_started"]
 [connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemEducationRow/DemEducationSlider" to="." method="_on_dem_education_slider_value_changed"]
+[connection signal="drag_started" from="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemEducationRow/DemEducationSlider" to="." method="_on_dem_education_slider_drag_started"]
 [connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemImmigrationRow/DemImmigrationSlider" to="." method="_on_dem_immigration_slider_value_changed"]
+[connection signal="drag_started" from="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemImmigrationRow/DemImmigrationSlider" to="." method="_on_dem_immigration_slider_drag_started"]
 [connection signal="value_changed" from="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemEnvironmentRow/DemEnvironmentSlider" to="." method="_on_dem_environment_slider_value_changed"]
+[connection signal="drag_started" from="ScrollContainer/MainVBox/SectionsContainer/DemSection/DemEnvironmentRow/DemEnvironmentSlider" to="." method="_on_dem_environment_slider_drag_started"]
 [connection signal="pressed" from="ScrollContainer/MainVBox/ProceedRow/ProceedButton" to="." method="_on_proceed_button_pressed"]
