@@ -84,7 +84,7 @@ offset_right = -0.156006
 offset_bottom = 0.115997
 size_flags_vertical = 2
 theme_override_font_sizes/font_size = 40
-text = "It's your turn to share your thoughts. How do you feel about the statement?"
+text = "Share your thoughts: It is your turn to share your thoughts about the headline. What comment do you want to post in the chatroom?"
 horizontal_alignment = 1
 autowrap_mode = 2
 
@@ -108,7 +108,7 @@ theme_override_constants/separation = 20
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 42
-text = "Support"
+text = "Believe"
 
 [node name="UnsureButton" type="Button" parent="PopupContainer/HBoxContainer"]
 layout_mode = 2
@@ -120,7 +120,7 @@ text = "Unsure"
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_font_sizes/font_size = 42
-text = "Oppose"
+text = "Disbelieve"
 
 [node name="ResponseTextEdit" type="TextEdit" parent="PopupContainer"]
 layout_mode = 1
