@@ -88,7 +88,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 vertical_alignment = 1
 theme_override_font_sizes/font_size = 38
-text = "What is the level of bias you would expect from any given Republican user on the following news related topics? A stronger bias means they are more likely to endorse claims that support their party or reject claims that oppose it, regardless of whether those claims are true."
+text = "What is the level of bias you would expect from a typical Republican on this platform, about each of the following topics?
+
+A stronger bias means they are more likely to endorse claims that align with their party's view or reject claims that misalign with it, regardless of whether those claims are true."
 autowrap_mode = 2
 
 [node name="RepScaleLabels" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/RepSection"]
@@ -255,7 +257,9 @@ layout_mode = 2
 size_flags_horizontal = 3
 vertical_alignment = 1
 theme_override_font_sizes/font_size = 38
-text = "What is the level of bias you would expect from any given Democrat user on the following news related topics? A stronger bias means they are more likely to endorse claims that support their party or reject claims that oppose it, regardless of whether those claims are true."
+text = "What is the level of bias you would expect from a typical Democrat on this platform, about each of the following topics?
+
+A stronger bias means they are more likely to endorse claims that align with their party's view or reject claims that misalign with it, regardless of whether those claims are true."
 autowrap_mode = 2
 
 [node name="DemScaleLabels" type="HBoxContainer" parent="ScrollContainer/MainVBox/SectionsContainer/DemSection"]
